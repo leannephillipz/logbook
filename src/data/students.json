@@ -1,0 +1,264 @@
+[{
+		"id": "0",
+		"uid": "089573",
+		"name": {
+			"first": "Bugs",
+			"last": "Bunny"
+		},
+		"fname": "Bugs",
+    "lname": "Bunny",
+		"dob": "1979-08-08",
+		"gender": "male",
+		"email": "BugsBunny@college.ac.uk",
+		"img": {
+			"url": "students/089573.jpg",
+			"alt": "Flintstone"
+		},
+		"flags": ["Dyslexia"],
+		"examsupport": ["Reader", "Scriber"],
+		"documents": ["EHCP", "Discosure"],
+		"status": "active",
+		"notes": {
+			"0": {
+				"date": "20/12/1979",
+				"note": "What's up doc?"
+			},
+			"1": {
+				"date": "20/12/1979",
+				"note": "First the doctor told me the good news: I was going to have a disease named after me."
+			}
+		},
+		"courses": {
+			"main": "EM0090",
+			"maths:": false,
+			"english": false
+		},
+		"coursecode": "EM0090"
+}, {
+			"id": "1",
+			"uid": "395791",
+			"fname": "Daffy",
+	    "lname": "Duck",
+			"dob": "12/12/2001",
+			"gender": "male",
+			"email": "daffyduck@college.ac.uk",
+			"img": {
+			 "url": "students/395791.jpg",
+			 "alt": "Flintstone"
+		 },
+			"flags": ["Dyslexia"],
+			"examsupport": ["Reader", "Scriber"],
+		"documents": ["Discosure"],
+			"notes": {
+				"0": {
+					"date": "20/12/1979",
+					"note": "They told him, Don't you ever come around here. Don't wanna see your face. You better disappear."
+				},
+				"1": {
+					"date": "20/12/1979",
+					"note": "I'm starting with the man in the mirror. I'm asking him to change his ways"
+				}
+			},
+			"course": "Music and Media",
+			"coursecode": "ZP9439"
+}, {
+			"id": "2",
+			"uid": "28943",
+			"fname": "Micky",
+	    "lname": "Mouse",
+			"dob": "12/12/2001",
+			"gender": "male",
+			"email": "MarilynMonroe@college.ac.uk",
+			"img": {
+			 "url": "students/28943.jpg",
+			 "alt": "Flintstone"
+		 },
+			"flags": ["Dyslexia"],
+		"documents": ["EHCP"],
+			"notes": {
+				"0": {
+					"date": "20/12/1979",
+					"note": "Imperfection is beauty, madness is genius and it's better to be absolutely ridiculous than absolutely boring."
+				},
+				"1": {
+					"date": "20/12/1979",
+					"note": "Fear is stupid. So are regrets."
+				}
+			},
+			"coursecode": "ZP9439"
+}, {
+			"id": "3",
+			"uid": "348928",
+			"fname": "Fred",
+	    "lname": "Flintstone",
+			"dob": "12/12/2001",
+			"gender": "male",
+			"email": "LukeSkywalker@college.ac.uk",
+	    "img": {
+				"url": "students/348928.jpg",
+				"alt": "Flintstone"
+			},
+			"flags": ["Dyslexia"],
+		"documents": ["Discosure"],
+			"notes": {
+				"0": {
+					"date": "20/12/1979",
+					"note": "The force is strong with Luke."
+				},
+				"1": {
+					"date": "20/12/1979",
+					"note": "We sence much fear."
+				}
+			},
+			"coursecode": "BL0904"
+}, {
+			"id": "4",
+			"uid": "567255",
+			"fname": "Yogi",
+	    "lname": "Bear",
+			"dob": "12/12/2001",
+			"gender": "male",
+			"email": "YogiBear@college.ac.uk",
+	    "img": {
+				"url": "students/567255.jpg",
+				"alt": "Bear"
+			},
+			"flags": ["Dyslexia"],
+		"documents": ["Discosure"],
+			"notes": {
+				"0": {
+					"date": "20/12/1979",
+					"note": "The force is strong with Luke."
+				},
+				"1": {
+					"date": "20/12/1979",
+					"note": "We sence much fear."
+				}
+			},
+			"coursecode": "EM0090"
+}, {
+			"id": "5",
+			"uid": "684564",
+			"fname": "George",
+	    "lname": "Jetson",
+			"dob": "12/12/2001",
+			"gender": "male",
+			"email": "GeorgeJetson@college.ac.uk",
+	    "img": {
+				"url": "students/684564.jpg",
+				"alt": "Jetson"
+			},
+			"flags": ["Dyslexia"],
+		"documents": ["EHCP"],
+			"notes": {
+				"0": {
+					"date": "20/12/1979",
+					"note": "woohoo"
+				},
+				"1": {
+					"date": "20/12/1979",
+					"note": "ywp"
+				}
+			},
+			"coursecode": "CY3404"
+}, {
+			"id": "6",
+			"uid": "67465",
+			"fname": "Homer",
+	    "lname": "Simpson",
+			"dob": "12/12/2001",
+			"gender": "male",
+			"email": "HomerSimpson@college.ac.uk",
+	    "img": {
+				"url": "students/67465.jpg",
+				"alt": "Jetson"
+			},
+			"flags": ["Dyslexia"],
+		"documents": [],
+			"notes": {
+				"0": {
+					"date": "20/12/1979",
+					"note": "woohoo"
+				},
+				"1": {
+					"date": "20/12/1979",
+					"note": "ywp"
+				}
+			},
+			"coursecode": "EM0090"
+}, {
+			"id": "7",
+			"uid": "8673546",
+			"fname": "Wile E",
+	    "lname": "Coyote",
+			"dob": "12/12/2001",
+			"gender": "male",
+			"email": "WileECoyote@college.ac.uk",
+	    "img": {
+				"url": "students/8673546.jpg",
+				"alt": "Coyote"
+			},
+			"flags": ["Dyslexia"],
+		"documents": ["Discosure"],
+			"notes": {
+				"0": {
+					"date": "20/12/1979",
+					"note": "woohoo"
+				},
+				"1": {
+					"date": "20/12/1979",
+					"note": "ywp"
+				}
+			},
+			"coursecode": "349904"
+}, {
+			"id": "7",
+			"uid": "5757743",
+			"fname": "Foghorn",
+	    "lname": "Leghorn",
+			"dob": "12/12/2001",
+			"gender": "male",
+			"email": "FoghornLeghorn@college.ac.uk",
+	    "img": {
+				"url": "students/5757743.jpg",
+				"alt": "Foghorn Leghorn"
+			},
+			"flags": ["Writing"],
+		"documents": ["Discosure"],
+			"notes": {
+				"0": {
+					"date": "20/12/1979",
+					"note": "woohoo"
+				},
+				"1": {
+					"date": "20/12/1979",
+					"note": "ywp"
+				}
+			},
+			"coursecode": "530q32"
+}, {
+			"id": "8",
+			"uid": "446562",
+			"fname": "Peter",
+	    "lname": "Pan",
+			"dob": "12/12/2001",
+			"gender": "male",
+			"email": "PeterPan@college.ac.uk",
+	    "img": {
+				"url": "students/5757743.jpg",
+				"alt": "Peter pan"
+			},
+			"flags": ["Dyslexia"],
+			"documents": [],
+			"notes": {
+				"0": {
+					"date": "20/12/1979",
+					"note": "woohoo"
+				},
+				"1": {
+					"date": "20/12/1979",
+					"note": "ywp"
+				}
+			},
+			"coursecode": "358353"
+}]
