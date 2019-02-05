@@ -1,4 +1,6 @@
-# logbook-13
+# logbook
+
+A student logbook for schools and colleges.
 
 ## Project setup
 ```
