@@ -1,14 +1,11 @@
 <template >
     <transition name="fade">
         <nav>
-
-          <button class="toggle btn mobiletest" @click="hidden = !hidden">≡</button>
-
-          <ul class="nav" :class="{show: !hidden}">
+          <button class="mob" @click="hidden = !hidden">≡</button>
+          <ul class="nav" :class="[hidden ? show : hide]">
           <li><router-link to="/home">Home</router-link></li>
           <li><router-link to="/newlog">New log</router-link></li>
           <li><router-link to="/logbooks">Logbooks</router-link></li>
-          <!-- <li><router-link to="/logbook">Logbook</router-link></li> -->
           <li><router-link to="/students">Students</router-link></li>
           <li><router-link to="/newstudent">Add student</router-link></li>
           <!-- <li><router-link to="/search">Search</router-link></li> -->
@@ -21,10 +18,10 @@
 <script>
 
 export default {
-    name: 'Menu',
+    name: 'Navigation',
       data: function() {
         return {
-          hidden: this.visible
+          hidden: true,
         }
       }
   }
@@ -32,12 +29,21 @@ export default {
 </script>
 <style>
 
-.nav {display:none;}
-.show {
-  display: block;
+nav .mob {
+        display:none;
+    }
+    
+@media screen and (max-width: 1000px) {
+   nav .mob {
+        display:block
+    }
+  .hide {
+    display:none;
+    }
+    .show {
+        display: block;
+    }
 }
-
-
 
 
 </style>
