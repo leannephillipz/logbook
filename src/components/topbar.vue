@@ -13,7 +13,7 @@
 
 <script>
 
-import NotifyStore from '@/stores/NotifyStore.js';
+import NotifyStore from '@/data/NotifyStore.js';
 
 export default {
     name: 'topbar',

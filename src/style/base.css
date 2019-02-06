@@ -48,17 +48,6 @@ main {
 }
 
 
-/* fix jump problem */
-/* main {
-  position:absolute;
-  width: calc(100% - (240px + 6rem));
-} */
-
-/* .container{
-  position:absolute;
-  height:100%;
-  width: calc(100% - (240px + 6rem));
-} */
 
 .contain {
     width: 100%;
@@ -174,7 +163,6 @@ select {
     -moz-border-radius: 2px;
     border-radius: 2px;
     border:0;
-    box-sizing: border-box;
   	/* border: 1px solid #e5e5e5; */
   	vertical-align: middle;
   	padding: 0.9em 0.8em;
@@ -378,6 +366,7 @@ ol, ul {
     padding: 0;
     margin: 0;
     list-style: none;
+    margin-bottom: 1rem; /*matches p tag*/
 }
 
 ul ul,

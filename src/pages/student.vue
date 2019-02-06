@@ -3,51 +3,68 @@
   <div class="flex profilepage">
   <div class="content">
        <h2 class="pagetitle">Student</h2>
-       <p>{{student.fname}} {{student.lname}}<span>(ID: {{student.uid}})</span></p>
+       <p>{{student.fname}} {{student.lname}}
+        <br>ID: {{student.uid}}<br>
+         Email: <a v-bind:href=" 'mailto:' + student.email">{{student.email}}</a></p>
        <h5>Course:</h5>
-       <p>{{student.course}}<span> (Code: {{student.coursecode}})</span></p>
-       <h5>Flags:</h5>
-       <ul v-if="student.flags">
+       <p v-for="(item, index) in courseLookup(student.coursecode)" :key="index">{{ item.title }}
+         <br>Level: {{ item.level }}
+          <br>Code: {{student.coursecode}}
+        </p>
+
+      <div v-if="student.documents">
+             <h5>Documents:</h5>
+             <ul class="tags" >
+             <li v-for="(doc, index) in student.documents" :key="index">
+               {{ doc }}
+             </li>
+      </ul>
+      </div>
+
+      <div v-if="student.flags">
+       <h5>Key points to be aware of...</h5>
+       <ul v-if="student.flags" class="tags">
        <li v-for="(flag, index) in student.flags" :key="index">
          {{ flag }}
        </li>
      </ul>
+   </div>
+
+   <div v-if="student.examsupport">
      <h5>Exam Support requirements:</h5>
-     <ul v-if="student.examsupport" >
+     <ul class="tags">
      <li v-for="(item, index) in student.examsupport" :key="index">
        {{ item }}
      </li>
    </ul>
+ </div>
 
-       <h5>Documents:</h5>
-       <ul v-if="student.documents" >
-       <li v-for="(doc, index) in student.documents" :key="index">
-         {{ doc }}
+<div v-if="student.notes" >
+  <hr class="spacer"/>
+       <h5>Extra Notes:</h5>
+       <ul >
+       <li v-for="(note, index) in student.notes" :key="index">
+         {{ note.note }}
        </li>
      </ul>
-     <h5>Extra Notes:</h5>
-     <ul v-if="student.notes" >
-     <li v-for="(note, index) in student.notes" :key="index">
-       {{ note.note }}
-     </li>
-   </ul>
-  <hr class="spacer">
-  <div class="">
-       <h5>Logs:</h5>
+</div>
 
-         <ul class="list " v-for="(log, index) in getlogs" :key="index">
+
+  <div v-if="getlogs" class="block">
+    <hr class="spacer"/>
+       <h5>Logs:</h5>
+         <ul class="cards" v-for="(log, index) in getlogs(student.uid)" :key="index">
            <li>
-           <p>{{ log.datestamp }} </p>
-           <div>{{ log.content | snippet }}</div> 
-           <router-link :to="{ name: 'log', params: { id: log.id  }}">Read</router-link>
+             <p>{{ log.datestamp | moment("DD/MM/YYYY")}}</p> <p>{{ log.content | snippet }}</p>
+           <router-link :to="{ name: 'log', params: { id: log.id  }}">Read more...</router-link>
          </li>
          </ul>
          </div>
 
        </div>
 
-       <div>
-       <img :src="require('@/data/students/'+student.uid+'.jpg')" alt="require works"/>
+       <div class="profile">
+       <img :src="require('@/data/'+student.img.url)" :alt="student.img.alt"/>
        </div>
        </div>
 </main>
@@ -56,6 +73,7 @@
 <script>
 import StudentStore from '@/data/studentstore.js'
 import LogStore from '@/data/logstore.js'
+import CourseStore from '@/data/coursestore.js'
 
 export default {
   name: 'student',
@@ -64,8 +82,9 @@ export default {
           routeId: this.$route.params.id,
           allstudents: StudentStore.data.students,
           alllogs: LogStore.data.logs,
+          allcourses: CourseStore.data.courses,
           student: {},
-          logs :{}
+          logs: {}
         }
     },
     created(){
@@ -73,12 +92,23 @@ export default {
           this.student = this.allstudents.find(x => x.uid === this.routeId);
         },
     computed: {
-      getlogs: function(){
-         //return this.alllogs
-          this.logs = this.alllogs.find(x => x.students === this.$route.params.uid);
-      }
+
     },
     methods: {
+      getlogs(code){
+       let lookup = this.alllogs.filter(log => {
+           return log.students.find(x => x === code);
+          // log.students.find(x => x == this.student.uid);
+           })
+           return lookup
+      },
+      courseLookup(code) {
+        // return this.allcourses
+        const allcourses = this.allcourses
+          return allcourses.filter(item => {
+               return item.code.match(code);
+             })
+      },
       updatedata: function(){
         this.routeId = this.$route.params.uid
         this.student = this.allstudents.find(x => x.uid === this.routeId);
@@ -97,5 +127,5 @@ export default {
 
 <style scoped>
 
-img {min-height:50px;width:100%;}
+
 </style>

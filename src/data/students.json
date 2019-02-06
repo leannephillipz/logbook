@@ -7,11 +7,11 @@
 		},
 		"fname": "Bugs",
     "lname": "Bunny",
-		"dob": "1979-08-08",
+		"dob": "2000-08-08",
 		"gender": "male",
 		"email": "BugsBunny@college.ac.uk",
 		"img": {
-			"url": "students/089573.jpg",
+			"url": "students/bugs.jpg",
 			"alt": "Flintstone"
 		},
 		"flags": ["Dyslexia"],
@@ -20,20 +20,15 @@
 		"status": "active",
 		"notes": {
 			"0": {
-				"date": "20/12/1979",
-				"note": "What's up doc?"
+				"date": "20/12/2018",
+				"note": "Carrots are devine... You get a dozen for a dime, It's maaaa-gic!"
 			},
 			"1": {
-				"date": "20/12/1979",
+				"date": "20/12/2018",
 				"note": "First the doctor told me the good news: I was going to have a disease named after me."
 			}
 		},
-		"courses": {
-			"main": "EM0090",
-			"maths:": false,
-			"english": false
-		},
-		"coursecode": "EM0090"
+		"coursecode": "PC0890"
 }, {
 			"id": "1",
 			"uid": "395791",
@@ -43,7 +38,7 @@
 			"gender": "male",
 			"email": "daffyduck@college.ac.uk",
 			"img": {
-			 "url": "students/395791.jpg",
+			 "url": "students/daffy.jpg",
 			 "alt": "Flintstone"
 		 },
 			"flags": ["Dyslexia"],
@@ -59,8 +54,7 @@
 					"note": "I'm starting with the man in the mirror. I'm asking him to change his ways"
 				}
 			},
-			"course": "Music and Media",
-			"coursecode": "ZP9439"
+			"coursecode": "PC0890"
 }, {
 			"id": "2",
 			"uid": "28943",
@@ -70,7 +64,7 @@
 			"gender": "male",
 			"email": "MarilynMonroe@college.ac.uk",
 			"img": {
-			 "url": "students/28943.jpg",
+			 "url": "students/micky.jpg",
 			 "alt": "Flintstone"
 		 },
 			"flags": ["Dyslexia"],
@@ -85,7 +79,7 @@
 					"note": "Fear is stupid. So are regrets."
 				}
 			},
-			"coursecode": "ZP9439"
+			"coursecode": "PC0890"
 }, {
 			"id": "3",
 			"uid": "348928",
@@ -95,7 +89,7 @@
 			"gender": "male",
 			"email": "LukeSkywalker@college.ac.uk",
 	    "img": {
-				"url": "students/348928.jpg",
+				"url": "students/flintstone.jpg",
 				"alt": "Flintstone"
 			},
 			"flags": ["Dyslexia"],
@@ -110,7 +104,7 @@
 					"note": "We sence much fear."
 				}
 			},
-			"coursecode": "BL0904"
+			"coursecode": "PC0890"
 }, {
 			"id": "4",
 			"uid": "567255",
@@ -120,7 +114,7 @@
 			"gender": "male",
 			"email": "YogiBear@college.ac.uk",
 	    "img": {
-				"url": "students/567255.jpg",
+				"url": "students/yogi.jpg",
 				"alt": "Bear"
 			},
 			"flags": ["Dyslexia"],
@@ -135,7 +129,7 @@
 					"note": "We sence much fear."
 				}
 			},
-			"coursecode": "EM0090"
+			"coursecode": "PC0890"
 }, {
 			"id": "5",
 			"uid": "684564",
@@ -145,7 +139,7 @@
 			"gender": "male",
 			"email": "GeorgeJetson@college.ac.uk",
 	    "img": {
-				"url": "students/684564.jpg",
+				"url": "students/jetson.jpg",
 				"alt": "Jetson"
 			},
 			"flags": ["Dyslexia"],
@@ -160,7 +154,7 @@
 					"note": "ywp"
 				}
 			},
-			"coursecode": "CY3404"
+			"coursecode": "PC0890"
 }, {
 			"id": "6",
 			"uid": "67465",
@@ -170,7 +164,7 @@
 			"gender": "male",
 			"email": "HomerSimpson@college.ac.uk",
 	    "img": {
-				"url": "students/67465.jpg",
+				"url": "students/homer.jpg",
 				"alt": "Jetson"
 			},
 			"flags": ["Dyslexia"],
@@ -185,7 +179,7 @@
 					"note": "ywp"
 				}
 			},
-			"coursecode": "EM0090"
+			"coursecode": "PC0890"
 }, {
 			"id": "7",
 			"uid": "8673546",
@@ -195,7 +189,7 @@
 			"gender": "male",
 			"email": "WileECoyote@college.ac.uk",
 	    "img": {
-				"url": "students/8673546.jpg",
+				"url": "students/coyote.jpg",
 				"alt": "Coyote"
 			},
 			"flags": ["Dyslexia"],
@@ -220,7 +214,7 @@
 			"gender": "male",
 			"email": "FoghornLeghorn@college.ac.uk",
 	    "img": {
-				"url": "students/5757743.jpg",
+				"url": "students/foghorn.jpg",
 				"alt": "Foghorn Leghorn"
 			},
 			"flags": ["Writing"],
@@ -235,7 +229,7 @@
 					"note": "ywp"
 				}
 			},
-			"coursecode": "530q32"
+			"coursecode": "PC0890"
 }, {
 			"id": "8",
 			"uid": "446562",
@@ -245,7 +239,7 @@
 			"gender": "male",
 			"email": "PeterPan@college.ac.uk",
 	    "img": {
-				"url": "students/5757743.jpg",
+				"url": "students/pan.jpg",
 				"alt": "Peter pan"
 			},
 			"flags": ["Dyslexia"],
@@ -260,5 +254,5 @@
 					"note": "ywp"
 				}
 			},
-			"coursecode": "358353"
+			"coursecode": "PC0890"
 }]

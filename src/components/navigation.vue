@@ -2,7 +2,7 @@
     <transition name="fade">
         <nav>
           <button class="mob" @click="hidden = !hidden">≡</button>
-          <ul class="nav" :class="[hidden ? show : hide]">
+          <ul class="nav" :class="hidden ? 'show' : 'hide'">
           <li><router-link to="/home">Home</router-link></li>
           <li><router-link to="/newlog">New log</router-link></li>
           <li><router-link to="/logbooks">Logbooks</router-link></li>
@@ -16,7 +16,6 @@
 
 
 <script>
-
 export default {
     name: 'Navigation',
       data: function() {
@@ -25,18 +24,13 @@ export default {
         }
       }
   }
-
 </script>
-<style>
+<style scoped>
 
-nav .mob {
-        display:none;
-    }
-    
+
+
 @media screen and (max-width: 1000px) {
-   nav .mob {
-        display:block
-    }
+
   .hide {
     display:none;
     }
@@ -44,6 +38,4 @@ nav .mob {
         display: block;
     }
 }
-
-
 </style>
