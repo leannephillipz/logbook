@@ -37,12 +37,9 @@
 
          <ul class="list " v-for="(log, index) in getlogs" :key="index">
            <li>
-           <ul class="flex">
-             <li class="sm">{{ log.datestamp }}</li>
-             <li>{{ log.course }} </li>
-             <li>{{ log.content | snippet }}</li>
-             <li class="sm"><router-link :to="{ name: 'log', params: { id: log.id  }}">Read</router-link></li>
-           </ul>
+           <p>{{ log.datestamp }} </p>
+           <div>{{ log.content | snippet }}</div> 
+           <router-link :to="{ name: 'log', params: { id: log.id  }}">Read</router-link>
          </li>
          </ul>
          </div>
@@ -67,7 +64,8 @@ export default {
           routeId: this.$route.params.id,
           allstudents: StudentStore.data.students,
           alllogs: LogStore.data.logs,
-          student: {}
+          student: {},
+          logs :{}
         }
     },
     created(){
@@ -76,10 +74,8 @@ export default {
         },
     computed: {
       getlogs: function(){
-         // const v = this
-         // const logs = v.alllogs
-         // return logs
-         return this.alllogs
+         //return this.alllogs
+          this.logs = this.alllogs.find(x => x.students === this.$route.params.uid);
       }
     },
     methods: {
