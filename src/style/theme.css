@@ -7,7 +7,7 @@ section.login {
 }
 
 
-h3 {padding:0;}
+
 
 .checkbox {
   background:#323232;
@@ -23,13 +23,13 @@ h3 {padding:0;}
   text-align: right;
 }
 
-@media (max-width: 1000px) {
+@media (max-width: 1080px) {
   .colhead {
     display:none;
   }
 }
 
-@media screen and (min-width: 1000px){
+@media screen and (min-width: 1080px){
 
 .list ul li{
   padding-right:0.5rem;
@@ -49,11 +49,15 @@ h3 {padding:0;}
 }
 
 .logbooks .list ul li{
-  flex: 1 1 150px;
+  flex: 0 1 150px;
 }
 
 .logbooks .list ul li:first-child{
   flex: 0 1 50px;
+}
+
+.logbooks .list ul li:nth-child(2){
+  flex: 1 1 100px;
 }
 .logbooks .list ul li:last-child{
   flex: 0 1 80px;
@@ -71,21 +75,23 @@ h3 {padding:0;}
 }
 
 .list .details {
-  cursor:pointer;
+
   -webkit-transition: all 0.4s; /* Safari */
   transition: all 0.4s;
 }
 .list .details .flex {
-  align-items: center;
-  justify-content: center;
+  align-items: start;
+  justify-content: start;
 }
-.list .details:hover {
+/* .list .details:hover {
+  cursor:pointer;
   background:rgba(255,255,255,0.1);
-}
+} */
 }
 
 
 .list li {padding:0;}
+
 
 .list > li ul{
 padding:1rem 0.3rem; border-bottom: 1px solid rgba(160, 160, 160, 0.44);
@@ -121,7 +127,7 @@ padding:1rem 0.3rem; border-bottom: 1px solid rgba(160, 160, 160, 0.44);
     }
 
 
-
+/*
 nav {
     position:fixed;
     width: 240px;
@@ -129,7 +135,7 @@ nav {
     background:#F7F9FA;
     background: rgba(50,50,50,0.3);
     height: 100%;
-    padding: var(--padding);
+    padding: 1rem 3rem;;
 }
 
   nav ul {
@@ -139,14 +145,14 @@ nav {
   }
 
   nav a {color:rgba(255,255,255,0.8);}
+    nav a:hover {background-color: red;}
 
   @media (max-width: 1000px) {
 
     nav {
         position:fixed;
         width: auto;
-        min-width: auto;
-        background:rgba(50,50,50,1);
+        min-width: auto;;
     }
 
     nav ul {
@@ -155,10 +161,64 @@ nav {
 
     }
   }
-nav a, menu a {display:block; margin: 1rem 0; padding-right: 11px;}
+nav a, menu a {display:block; margin: 1rem 0; padding-right: 11px;} */
+
+nav {
+  display:block;
+  position: absolute;
+  padding: 1rem 3rem;
+  background: rgba(50,50,50,0.3);
+  height: 100%;
+  position:fixed;
+}
+
+nav ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display: block;
+}
+
+nav li a {
+  display: block;
+  color: #fff;
+  padding: 8px 16px;
+  text-decoration: none;
+  transition: all 0.3s;
+}
+
+/* Change the link color on hover */
+nav li a:hover {
+  background-color: #000;
+}
+
+.router-link-active {
+  box-sizing: border-box;
+}
 
 
-
+  @media screen and (min-width: 1080px) {
+    nav {
+      text-align: right;
+      min-width: 200px;
+      padding:0;
+      padding-top:80px;
+    }
+    .router-link-active {
+      border-right: 1px solid white;
+    }
+}
+  @media screen and (max-width: 1080px) { /*mobile*/
+    .router-link-active {
+      border-left: 1px solid white;
+    }
+    nav {
+      background-color: transparent;
+    }
+    nav ul {
+      background-color:rgb(48, 107, 96);
+    }
+  }
 
 
 
@@ -295,33 +355,7 @@ fieldset.log {
   color:#fff;
 }
 
-.dark nav {
 
-}
-
-
-  @media screen and (min-width: 1000px) {
-    .router-link-active {border-right: 1px solid white; padding-right: 10px;}
-    nav .mob {display:none;}
-
-  }
-
-  @media screen and (max-width: 1000px) { /*mobile*/
-    nav ul a {
-      padding-left:11px;
-    }
-
-    .router-link-active {border-left: 1px solid white; border-right: 0; padding-left:10px;}
-    .dark nav {
-      background-color: transparent;
-    }
-    .dark nav ul {
-      display: block;
-      background-color:rgb(48, 107, 96);
-      padding:5px 5px 10px 0;
-      display:none;
-    }
-  }
 
 .dark .topbar {
       background: rgba(241, 240, 229, 0.05);
@@ -338,6 +372,11 @@ main .pagetitle{
     top: 40px;
     color: #71808c;}
 
+  @media screen and (max-width: 1080px) {
+    main .pagetitle{
+      left: 100px;
+    }
+  }
 
 
 .filters .opts label{
@@ -395,14 +434,18 @@ main .pagetitle{
 
 
 
-.dark .block ul > *{
+.dark .block ul li p:first-child{
       background-color: rgba(0,0,0,0.2);
       padding:1rem;
       margin:1rem 0;
       box-sizing: border-box;
-      -webkit-border-radius: 2px;
-      -moz-border-radius: 2px;
-      border-radius: 2px;
+      -webkit-border-radius: 20px 20px 20px 2px;;
+      -moz-border-radius: 20px 20px 20px 2px;;
+      border-radius: 20px 20px 20px 2px;
+      margin-bottom:5px;
+}
+.dark .block ul li p:last-child{
+  color:#78818a;
 }
 
 
@@ -411,10 +454,115 @@ main .pagetitle{
 }
 
 
-ul.tags li{
+
+
+
+
+.cards {
+  justify-content: flex-start;
+}
+
+.cards img {
+  width: 100%;
+  height: auto;
+  cursor: pointer;
+}
+
+.cards .card{
+  margin-right: 10px;
+  flex: 1 1 20%;
+  background-color: rgba(167, 181, 180, 0.24);
+  margin-bottom: 10px;
+  padding: 20px;
+}
+
+.cards .card ul li:last-child{
+  margin-top: 10px;
+}
+
+
+
+.card .img {
+  margin-bottom: 10px;
+}
+
+
+@media screen and (max-width: 1080px)  {
+  .cards.flex {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -ms-flex-flow: row wrap;
+    flex-flow: row wrap;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    /* justify-content: space-between; */
+  }
+}
+
+@media screen and (max-width: 700px)  {
+
+  .cards .card{
+    flex: 1 1 40%;
+  }
+
+}
+
+
+.tags li {
+  background-color:#606d735e;
+  padding:10px;
+  display: inline-block;
+  margin-right: 10px;
+  border-radius: 3px;
+  margin-top: 10px;
+}
+
+/* ul.tags li{
   display: inline-block;
   background: #337963;
   padding: 10px 15px;
   margin-right: 10px;
   border-radius: 3px;
+} */
+
+
+
+.course .tags .ehcp {
+  /* background-color:#1db5b669; */
+  background-color:#2d7b858a;
+  padding:10px;
 }
+
+.course .tags .ehcp a{
+  color:#fff;
+}
+
+
+.course b {
+  width: 150px;
+    display: inline-block;
+}
+
+
+
+.list button {
+  padding: 0.1em 0.9em;
+}
+
+
+.list li:nth-child(2) button{
+  padding: 0.1em 0.9em;
+    background-color: #00000014;
+    color: #fff;
+    text-transform: none;
+    white-space: normal;
+}
+
+  @media screen and (max-width: 1080px) {
+    .list li:nth-child(2) button{
+      padding: 0;
+        background-color: transparent;
+        color: #fff;
+        text-transform: none;
+    }
+  }

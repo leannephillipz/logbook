@@ -13,8 +13,8 @@
 </div>
 
 <!-- <span>Selected: {{ selectedcourse }}</span> -->
-  <ul class="list">
-    <li>
+  <ul class="cards flex">
+    <!-- <li>
       <ul class="flex colhead">
         <li></li>
       <li>Name</li>
@@ -22,10 +22,10 @@
       <li>Age</li>
       <li></li>
       </ul>
-    </li>
-      <li v-for="(student, index) in filteredStudents" :key="index" class="details">
-          <ul class="flex" @click="jumpTo(student.uid)">
-          <li class="img" v-if="student.img">
+    </li> -->
+      <li v-for="(student, index) in filteredStudents" :key="index" class="card">
+          <ul>
+          <li class="img" v-if="student.img" @click="jumpTo(student.uid)">
             <img :src="require('@/data/'+student.img.url)" :alt="student.img.alt" />
           </li>
           <li v-else><img :src="require('@/data/students/placeholder.jpg')" alt="no image" /></li>
@@ -33,8 +33,9 @@
           <li v-for="(item, index) in crossRef(student.coursecode)" :key="index">{{ item.title }}<br>Level {{ item.level }}</li>
           <li>{{ student.dob | moment("from", "now", true) }} old</li>
           <li>
-            <button @click="jumpTo(student.uid)">view</button>
-          <!-- <router-link :to="{ name: 'student', params: { uid: student.uid  }}">View</router-link> -->
+            <!-- <button @click="jumpTo(student.uid)">Profile</button> -->
+            <router-link :to="{ name: 'student', params: { uid: student.uid }}">View Profile</router-link><br>
+          <!-- <router-link :to="{ name: 'student', params: { uid: student.uid}, hash:'#logs'}">View logs</router-link> -->
           </li>
           </ul>
       </li>

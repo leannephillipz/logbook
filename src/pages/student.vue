@@ -3,8 +3,8 @@
   <div class="flex profilepage">
   <div class="content">
        <h2 class="pagetitle">Student</h2>
-       <p>{{student.fname}} {{student.lname}}
-        <br>ID: {{student.uid}}<br>
+       <h3>{{student.fname}} {{student.lname}}</h3>
+        <p>ID: {{student.uid}}<br>
          Email: <a v-bind:href=" 'mailto:' + student.email">{{student.email}}</a></p>
        <h5>Course:</h5>
        <p v-for="(item, index) in courseLookup(student.coursecode)" :key="index">{{ item.title }}
@@ -22,7 +22,7 @@
       </div>
 
       <div v-if="student.flags">
-       <h5>Key points to be aware of...</h5>
+       <h5>Key points to be aware of:</h5>
        <ul v-if="student.flags" class="tags">
        <li v-for="(flag, index) in student.flags" :key="index">
          {{ flag }}
@@ -52,11 +52,11 @@
 
   <div v-if="getlogs" class="block">
     <hr class="spacer"/>
-       <h5>Logs:</h5>
+       <h5 id="logs">Logs:</h5>
          <ul class="cards" v-for="(log, index) in getlogs(student.uid)" :key="index">
            <li>
-             <p>{{ log.datestamp | moment("DD/MM/YYYY")}}</p> <p>{{ log.content | snippet }}</p>
-           <router-link :to="{ name: 'log', params: { id: log.id  }}">Read more...</router-link>
+             <p>{{ log.content | snippet }} <router-link :to="{ name: 'log', params: { id: log.id  }}">Read more...</router-link></p>
+             <p>{{ log.datestamp | moment("DD/MM/YYYY")}}</p>
          </li>
          </ul>
          </div>

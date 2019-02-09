@@ -1,21 +1,23 @@
 <template>
 <main class="course">
+
+  <h2 class="pagetitle">Course</h2>
+  <h3>{{ course.title }}</h3>
+
 <div class="flex colx2">
 <div>
-     <h2 class="pagetitle">Course</h2>
-     <p>{{ course.title }}</p>
-     <p>Code Code: {{ course.code }}</p>
-     <p>Level: {{ course.level }}</p>
-     <p>Discipline: {{ course.discipline }}</p>
-     <p>Room(s): {{ course.room }}</p>
-     <p>Campus: {{ course.campus }}</p>
-     <p>Tutor: {{ course.tutor }}</p>
-     <p>Award: {{ course.qualification }}</p>
+     <p><b>Code Code:</b> {{ course.code }}</p>
+     <p><b>Level:</b> {{ course.level }}</p>
+     <p><b>Industry / Discipline:</b> {{ course.discipline }}</p>
+     <p><b>Room(s):</b> {{ course.room }}</p>
+     <p><b>Campus:</b> {{ course.campus }}</p>
+     <p><b>Tutor:</b> {{ course.tutor }}</p>
+     <p><b>Award:</b> {{ course.qualification }}</p>
      </div>
      <div>
        <p>Students:</p>
-       <ul>
-       <li v-for="(student, index) in getstudent" :key="student.uid">
+       <ul class="tags">
+       <li v-for="(student, index) in getstudent" :key="student.uid" :class="[student.documents, { tag: student.documents[0] }]">
          <router-link :to="{ name: 'student', params: { uid: student.uid  }}">{{ student.fname}} {{ student.lname}}</router-link>
        </li>
      </ul>

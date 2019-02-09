@@ -1,6 +1,6 @@
 # logbook
 
-A student logbook for schools and colleges using vue.js
+A prototype student logbook for learning support in schools and colleges using vue.js
 
 ## Project setup
 ```

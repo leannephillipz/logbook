@@ -1,12 +1,9 @@
 [{
 		"id": "0",
 		"uid": "089573",
-		"name": {
-			"first": "Bugs",
-			"last": "Bunny"
-		},
 		"fname": "Bugs",
     "lname": "Bunny",
+		"knownas": "Bugs",
 		"dob": "2000-08-08",
 		"gender": "male",
 		"email": "BugsBunny@college.ac.uk",

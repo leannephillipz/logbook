@@ -21,20 +21,25 @@
           <li>
             <ul class="flex colhead">
               <li class="sm">Level</li>
-              <li class="">Course</li>
+              <li class="">Title</li>
               <li class="">Qualification</li>
-              <li class="">Industry<!-- / Discipline / Department--></li>
+              <li class="">Industry / Discipline<!-- / Discipline / Department--></li>
               <li>Campus</li>
               <li class="sm"></li>
           </ul>
         </li>
             <li v-for="(course, index) in getcourse" :key="index" class="details">
               <ul class="flex"  >
-                <li class="sm" @click="jumpToCourse(course.code)">{{ course.level }}</li>
-                  <li class="" @click="jumpToCourse(course.code)">{{ course.title }}</li>
-                  <li @click="jumpToCourse(course.code)">{{ course.qualification }}</li>
-                  <li @click="jumpToCourse(course.code)">{{ course.discipline }}</li>
-                  <li @click="jumpToCourse(course.code)">{{ course.campus }}</li>
+                <li class="sm"><span class="mobileshow">Level: </span> {{ course.level }}</li>
+                  <li class="" @click="jumpToCourse(course.code)">
+                    <!-- {{ course.title }} -->
+
+                  <button @click="jumpTo(course.code)">{{ course.title }}</button>
+
+                </li>
+                  <li >{{ course.qualification }}</li>
+                  <li >{{ course.discipline }}</li>
+                  <li >{{ course.campus }}</li>
                   <li class="sm">
                       <button @click="jumpTo(course.code)" v-if="course.logs === true">Logs</button>
                   <p v-else>-</p>

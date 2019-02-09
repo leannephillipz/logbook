@@ -1,6 +1,6 @@
 <template>
 <section>
-  <h3>Notifications: {{notify.length}}</h3>
+  <h4>Notifications: {{notify.length}}</h4>
       <ul>
           <li v-for="note in notify.slice(0, 3)" class="item">
           {{note.note}}

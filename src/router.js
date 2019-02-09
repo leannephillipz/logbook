@@ -17,6 +17,13 @@ Vue.use(VueRouter)
 
 const router = new VueRouter({
    // mode: 'history', // removed the hash - must set up server to do this
+   scrollBehavior: function(to, from, savedPosition) {
+    if (to.hash) {
+      return {selector: to.hash}
+    } else {
+      return {x: 0, y: 0}
+    }
+  },
   // //base: '/projects/logbook/' //production
   // //base: __dirname,
   // base: process.env.BASE_URL,
@@ -106,6 +113,9 @@ const router = new VueRouter({
     }
   ],
   methods: {},
+//   scrollBehavior (to, from, savedPosition) {
+//   return { x: 0, y: 0 }
+// }
 
 })
 
