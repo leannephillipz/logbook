@@ -232,6 +232,10 @@ form {
  column-count: 2; */
 }
 
+@media screen and (min-width: 1080px) {
+  .addnew form {max-width:60%; }
+}
+
 /*form label {font-size:0.8em; width:100%; color: #999; }*/
 fieldset {margin:0; padding:0; display: block;}
 
@@ -336,6 +340,9 @@ background: #fff;
 margin: 1em 0;
 padding: 1em;
 font-size: 90%;
+}
+.components section .item:first-of-type {
+  margin:0;
 }
 
 
@@ -459,7 +466,9 @@ main .pagetitle{
 
 
 .cards {
+  -webkit-box-pack: start;
   justify-content: flex-start;
+  align-content: flex-start;
 }
 
 .cards img {
@@ -470,10 +479,19 @@ main .pagetitle{
 
 .cards .card{
   margin-right: 10px;
-  flex: 1 1 20%;
+flex: 0 1 calc(16.6666666667% - 10px);
   background-color: rgba(167, 181, 180, 0.24);
   margin-bottom: 10px;
   padding: 20px;
+  box-sizing: border-box;
+}
+
+.cards .card:last-of-type{
+  margin:0
+}
+
+.cards .card ul {
+  margin:0;
 }
 
 .cards .card ul li:last-child{
@@ -566,3 +584,14 @@ main .pagetitle{
         text-transform: none;
     }
   }
+
+/*
+  .icon{
+      color:#666
+  }
+  .icon:hover{
+      color:#000
+  }
+  .icon-close{
+  	color:red
+  } */

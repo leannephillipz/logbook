@@ -7,9 +7,8 @@ import Moment from 'moment'
 import VueMoment from 'vue-moment'
 // import VueMomentLib from 'vue-moment-lib'
 // Vue.use(require('vue-moment'));
-
-
-
+// import _ from 'lodash';
+// Vue.set(Vue.prototype, '_', _);
 
 // Vue.config.productionTip = false
 // Vue.config.devtools = true
@@ -21,8 +20,6 @@ Vue.use(Moment)
 Vue.use(VueMoment)
 
 
-import _ from 'lodash';
-Vue.set(Vue.prototype, '_', _);
 
 
 Vue.filter('snippet', val => {
@@ -33,8 +30,21 @@ Vue.filter('snippet', val => {
     val = val.substring(0,255) + "..."
     return val
   }
-
 })
+
+// Vue.filter('shuffle', val => {
+//   for (var i = val.length - 1; i > 0; i--) {
+//         var j = Math.floor(Math.random() * (i + 1))
+//         var temp = val[i]
+//         val[i] = val[j]
+//         val[j] = temp
+//     }
+//     return val
+// })
+
+
+
+
 
 
 // console.log(Vue.moment().locale()) //en

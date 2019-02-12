@@ -1,11 +1,14 @@
 @import url("config.css");
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i');
 
 body {
-    font-weight: normal;
-    font-family: 'Source Sans Pro', sans-serif;
+    font-family: 'Open Sans', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-weight: 400;
     color: #666;
-	   background-color: #f3f3f0 /* #fbfbf9 #f9f9fb*/;
-     height:100%;
+	  background-color: #f3f3f0 /* #fbfbf9 #f9f9fb*/;
+    height:100%;
 }
 
 
@@ -97,11 +100,11 @@ h3,
 h4,
 h5,
 h6 {
-	font-family: sans-serif;
 	font-size: 1.5em;
  	line-height: 1.5;
 	display:block;
 	padding: 0 0 1.5rem 0;
+  letter-spacing: 0.05em;
 }
 
 h1 {
@@ -150,9 +153,7 @@ a:hover { }
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 
 form {overflow: auto; }
-@media screen and (min-width: 1080px) {
-  form {max-width:60%; }
-}
+
 
 input, textarea, select, button { color: #666; }
 

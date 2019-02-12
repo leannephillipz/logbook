@@ -47,14 +47,14 @@ export default {
   computed: {
 
     getstudent: function(){
-          const filterstudents = this.course.students
+          let allstudents = this.course.students
 
           const newarr = new Array()
-          filterstudents.forEach(thisval => {
-            const thisuid = thisval
+          allstudents.forEach(thisval => {
+            let thisuid = thisval
 
-            const filtering = this.allstudents.filter((item) => {
-              return item.uid.toLowerCase().includes(thisuid)
+            let filtering = this.allstudents.filter((item) => {
+              return item.uid === thisuid
                })
             newarr.push(filtering[0])
 

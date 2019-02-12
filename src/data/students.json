@@ -1,5 +1,5 @@
-[{
-		"id": "0",
+[
+	{
 		"uid": "089573",
 		"fname": "Bugs",
     "lname": "Bunny",
@@ -25,9 +25,8 @@
 				"note": "First the doctor told me the good news: I was going to have a disease named after me."
 			}
 		},
-		"coursecode": "PC0890"
+		"coursecode": "ZEI343"
 }, {
-			"id": "1",
 			"uid": "395791",
 			"fname": "Daffy",
 	    "lname": "Duck",
@@ -41,6 +40,7 @@
 			"flags": ["Dyslexia"],
 			"examsupport": ["Reader", "Scriber"],
 		"documents": ["Discosure"],
+		"status": "active",
 			"notes": {
 				"0": {
 					"date": "20/12/1979",
@@ -51,9 +51,8 @@
 					"note": "I'm starting with the man in the mirror. I'm asking him to change his ways"
 				}
 			},
-			"coursecode": "PC0890"
+			"coursecode": "ZEI343"
 }, {
-			"id": "2",
 			"uid": "28943",
 			"fname": "Micky",
 	    "lname": "Mouse",
@@ -66,6 +65,7 @@
 		 },
 			"flags": ["Dyslexia"],
 		"documents": ["EHCP"],
+		"status": "active",
 			"notes": {
 				"0": {
 					"date": "20/12/1979",
@@ -78,7 +78,6 @@
 			},
 			"coursecode": "PC0890"
 }, {
-			"id": "3",
 			"uid": "348928",
 			"fname": "Fred",
 	    "lname": "Flintstone",
@@ -91,6 +90,7 @@
 			},
 			"flags": ["Dyslexia"],
 		"documents": ["Discosure"],
+		"status": "active",
 			"notes": {
 				"0": {
 					"date": "20/12/1979",
@@ -103,7 +103,6 @@
 			},
 			"coursecode": "PC0890"
 }, {
-			"id": "4",
 			"uid": "567255",
 			"fname": "Yogi",
 	    "lname": "Bear",
@@ -116,6 +115,7 @@
 			},
 			"flags": ["Dyslexia"],
 		"documents": ["Discosure"],
+		"status": "active",
 			"notes": {
 				"0": {
 					"date": "20/12/1979",
@@ -128,7 +128,6 @@
 			},
 			"coursecode": "PC0890"
 }, {
-			"id": "5",
 			"uid": "684564",
 			"fname": "George",
 	    "lname": "Jetson",
@@ -141,6 +140,7 @@
 			},
 			"flags": ["Dyslexia"],
 		"documents": ["EHCP"],
+		"status": "active",
 			"notes": {
 				"0": {
 					"date": "20/12/1979",
@@ -153,7 +153,6 @@
 			},
 			"coursecode": "PC0890"
 }, {
-			"id": "6",
 			"uid": "67465",
 			"fname": "Homer",
 	    "lname": "Simpson",
@@ -165,7 +164,8 @@
 				"alt": "Jetson"
 			},
 			"flags": ["Dyslexia"],
-		"documents": [],
+		"documents": "",
+		"status": "active",
 			"notes": {
 				"0": {
 					"date": "20/12/1979",
@@ -178,7 +178,6 @@
 			},
 			"coursecode": "PC0890"
 }, {
-			"id": "7",
 			"uid": "8673546",
 			"fname": "Wile E",
 	    "lname": "Coyote",
@@ -191,6 +190,7 @@
 			},
 			"flags": ["Dyslexia"],
 		"documents": ["Discosure"],
+		"status": "active",
 			"notes": {
 				"0": {
 					"date": "20/12/1979",
@@ -203,7 +203,6 @@
 			},
 			"coursecode": "349904"
 }, {
-			"id": "7",
 			"uid": "5757743",
 			"fname": "Foghorn",
 	    "lname": "Leghorn",
@@ -216,6 +215,7 @@
 			},
 			"flags": ["Writing"],
 		"documents": ["Discosure"],
+		"status": "active",
 			"notes": {
 				"0": {
 					"date": "20/12/1979",
@@ -228,7 +228,6 @@
 			},
 			"coursecode": "PC0890"
 }, {
-			"id": "8",
 			"uid": "446562",
 			"fname": "Peter",
 	    "lname": "Pan",
@@ -240,7 +239,8 @@
 				"alt": "Peter pan"
 			},
 			"flags": ["Dyslexia"],
-			"documents": [],
+			"documents": "",
+			"status": "active",
 			"notes": {
 				"0": {
 					"date": "20/12/1979",

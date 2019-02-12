@@ -62,7 +62,7 @@
 	 "title": "Mechanical Engineering",
     "code": "JJ3489",
     "room": "129",
-    "campus": "Broadwater",
+    "campus": "Shoreham",
     "tutor": "Bob the builder",
     "level": "2",
     "qualification": "Extended Diploma",
@@ -134,7 +134,7 @@
     "level": "2",
     "qualification": "GCSE",
     "logs": true,
-      "students": ["67465"]
+      "students": ["67465", "089573"]
 }, {
   "id": "12",
   "discipline": "Learning Support",

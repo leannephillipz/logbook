@@ -1,5 +1,5 @@
 <template>
-<main class="newlog">
+<main class="newlog addnew">
 <h2 class="pagetitle">Add a New Log</h2>
 <form v-if="!submitted">
 
@@ -20,7 +20,9 @@
       <label class='course'>
         <input type="text" v-model="searchFilter" />
         <ul class="dropdown" v-if="searchFilter.length > 1 && show == true">
-          <li v-for="(course, index) in courses()" :key="index" v-on:click="getdata(course.title, course.code, course.students)">{{ course.title }}</li>
+          <li v-for="(course, index) in courses()" :key="index" v-on:click="getdata(course.title, course.code, course.students)">
+            {{ course.title }}
+          </li>
         </ul>
         </label>
     </div>
@@ -32,12 +34,12 @@
     </fieldset>
 
   <fieldset class="group" v-if="validcourse == true">
-    <div v-if="suggeststudents.length" class="sopts">
+    <div class="sopts">
     <p>Select student(s):</p>
-      <ul v-for="(p, index) in findcoursestudents()" :key="index">
+      <ul v-for="(person, index) in suggeststudents" :key="index">
         <li><label>
-          <input type="checkbox" :value="p.uid" v-model="newlog.students" >
-          {{ p.fname }} {{ p.lname }}</label>
+          <input type="checkbox" :value="person.uid" v-model="newlog.students" >
+          {{ person.fname }} {{ person.lname }}</label>
       </li>
       </ul>
     </div>
@@ -126,23 +128,25 @@ export default {
          this.submitted = true;
        },
       getdata: function (title, code, students) {
-        // this.seen = true
         this.newlog.title = title
         this.searchFilter = title
         this.newlog.coursecode = code
-        this.suggeststudents = students
         this.validcourse = true
         this.show = false
-    },
 
-      findcoursestudents: function(){
-        let students = this.allstudents.filter(item => {
+        let getstudents = this.allstudents.filter(item => {
             return item.coursecode.toLowerCase().includes(this.newlog.coursecode.toLowerCase())
           })
-          return students
-          this.suggeststudents = students
+          this.suggeststudents = getstudents
 
     },
+
+    //   findcoursestudents: function(){
+    //     let students = this.allstudents.filter(item => {
+    //         return item.coursecode.toLowerCase().includes(this.newlog.coursecode.toLowerCase())
+    //       })
+    //       return students
+    // },
     courses(){
           if (this.searchFilter.length > 1){
             let courses = this.allcourses.filter(item => {

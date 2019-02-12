@@ -1,7 +1,7 @@
 <template >
 <section class="topbar">
 <ul>
-<li><span class="mobilehide">Notifications: {{notify.length}}</span></li>
+<!-- <li ><img src="@/assets/icons/info.png" class="mobilehide"> <span class="mobilehide">{{notify.length}}</span></li> -->
 <li ><button @click="toggellogin">Logout</button></li>
 <!-- <li>
   <div class="profile">

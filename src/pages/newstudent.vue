@@ -1,5 +1,5 @@
 <template>
-<main class="newstudent">
+<main class="newstudent addnew">
   <h2 class="pagetitle">Add a New Student</h2>
 
   <form v-if="!submitted">
