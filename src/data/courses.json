@@ -9,8 +9,7 @@
     "level": "2",
     "qualification": "GCSE",
     "logs": false,
-    "students": ["089573", "395791", "28943", "348928"],
-    "archive": [{"oldcoursecode": "s2343wj"}]
+    "students": ["992323", "9222093", "9942293", "994003", "9942993"]
 }, {
     "id": "1",
     "discipline": "Music",
@@ -22,7 +21,7 @@
     "level": "2",
     "logs": true,
     "qualification": "Diploma",
-      "students": ["089573", "684564", "67465", "8673546", "5757743", "446562"]
+      "students": ["9211193", "2942293", "2910293", "29101113", "291333", "2329992"]
 }, {
   "id": "2",
   "discipline": "Performing Arts & Theatre Production",
@@ -33,7 +32,7 @@
     "tutor": "Jim Carrey",
     "level": "2",
     "qualification": "GCSE",
-      "students": ["089573", "395791", "28943", "67465", "8673546", "5757743", "446562"]
+      "students": ["1123048", "1123043", "4440200", "765994", "993220", "121230"]
 }, {
   "id": "3",
   "discipline": "Construction",
@@ -44,7 +43,7 @@
     "tutor": "Luke Skywalker",
     "level": "2",
     "qualification": "GCSE",
-      "students": ["089573", "395791", "28943", "348928", "567255", "684564", "67465", "8673546", "5757743", "446562"]
+      "students": ["420136", "420134", "234027", "446562", "5757743", "8673546"]
 }, {
   "id": "4",
   "discipline": "Construction",
@@ -55,7 +54,7 @@
     "tutor": "Bob the builder",
     "level": "2",
     "qualification": "GCSE",
-      "students": ["089573", "395791", "28943", "348928", "567255", "684564", "67465", "8673546", "5757743", "446562"]
+      "students": ["67465", "684564", "567255", "348928", "28943"]
 }, {
   "id": "5",
   "discipline": "Engineering",
@@ -146,17 +145,17 @@
     "level": "ALL",
     "qualification": "-",
     "logs": false,
-      "students": ["000340"]
+      "students": ["992323"]
 }, {
   "id": "13",
   "discipline": "WOW",
 	 "title": "Magic",
-    "code": "MU8353",
+    "code": "MA8353",
     "room": "353",
     "campus": "Brighton",
     "tutor": "Various",
     "level": "1",
-    "qualification": "-",
+    "qualification": "NVQ",
     "logs": true,
-      "students": ["34242"]
+      "students": ["2942293"]
 }]
