@@ -564,7 +564,7 @@ flex: 0 1 calc(16.6666666667% - 10px);
 }
 
 
-.list li:nth-child(2) button{
+.list ul li:nth-child(2) button{
   padding: 0.1em 0.9em;
     background-color: #00000014;
     color: #fff;

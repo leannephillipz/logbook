@@ -24,7 +24,7 @@
                 <li>
                   <span v-for="(item, index) in crossRefCourse(log.coursecode )" :key="index">{{ item.title }} <br>level: {{ item.level }}</span>
                 </li>
-                <li>{{ log.content | snippet}} By: {{log.author.fname}} {{log.author.lname}}</li>
+                <li>{{ log.content | snippet}} <br>By: {{log.author.fname}} {{log.author.lname}}</li>
               <li><router-link :to="{ name: 'log', params: { id: log.id  }}">Read more...</router-link></li>
               </ul>
       </li>
