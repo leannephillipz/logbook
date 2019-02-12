@@ -486,10 +486,6 @@ flex: 0 1 calc(16.6666666667% - 10px);
   box-sizing: border-box;
 }
 
-.cards .card:last-of-type{
-  margin:0
-}
-
 .cards .card ul {
   margin:0;
 }
