@@ -53,12 +53,12 @@
         padding: 0;
     }
 }
-.flex.profilepage div:first-child {
+.flex .content:first-child {
     flex: 1 1 70%;
-    padding-right:1rem;
+    padding-right: 20rem;
 }
 
-.flex.profilepage div:last-child {
+.flex .side:last-child {
     flex: 1 1 20%;
 }
 

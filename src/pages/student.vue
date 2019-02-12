@@ -50,7 +50,7 @@
 </div>
 
 
-  <div v-if="getlogs" class="block">
+  <div v-if="logs" class="block">
     <hr class="spacer"/>
        <h5 id="logs">Logs:</h5>
          <ul class="cards" v-for="(log, index) in getlogs(student.uid)" :key="index">
@@ -63,7 +63,7 @@
 
        </div>
 
-       <div class="profile">
+       <div class="profile side">
        <img :src="require('@/data/'+student.img.url)" :alt="student.img.alt"/>
        </div>
        </div>
@@ -83,8 +83,7 @@ export default {
           allstudents: StudentStore.data.students,
           alllogs: LogStore.data.logs,
           allcourses: CourseStore.data.courses,
-          student: {},
-          logs: {}
+          logs: ''
         }
     },
     created(){
@@ -98,9 +97,10 @@ export default {
       getlogs(code){
        let lookup = this.alllogs.filter(log => {
            return log.students.find(x => x === code);
-          // log.students.find(x => x == this.student.uid);
            })
+           this.logs = lookup
            return lookup
+
       },
       courseLookup(code) {
         // return this.allcourses

@@ -5,17 +5,16 @@
   <button>Edit</button>
   <button>Delete</button>
 </div> -->
+<div class="flex colx2">
+  <div class="content">
 <h4>{{ log.datestamp | moment("Do MMMM YYYY")}}</h4>
 
   <p v-for="(item, index ) in crossRefCourse(log.coursecode)" :key="index">
-  <router-link :to="{ name: 'course', params: { code: log.coursecode  }}">{{ item.title }} level: {{ item.level }}</router-link>
+  <router-link :to="{ name: 'course', params: { code: log.coursecode  }}">Level {{ item.level }} {{ item.title }}</router-link>
 </p>
-
 <ul v-for="student in getstudent" :key="student.uid">
-<li>{{ log.type }} Support with: <router-link :to="{ name: 'student', params: { uid: student.uid  }}">{{ student.fname}} {{ student.lname}}</router-link></li>
+<li>With: <router-link :to="{ name: 'student', params: { uid: student.uid  }}">{{ student.fname}} {{ student.lname}}</router-link></li>
 </ul>
-
-
 <p>{{ log.content }}</p>
 <p v-if="log.strategies">Strategies used: {{ log.strategies }}</p>
 <p v-if="log.progress">Progress made: {{ log.progress }}</p>
@@ -23,6 +22,11 @@
 <p v-if="log.consideration">Points to consider: {{ log.consideration }}</p>
 <p>Written by: {{ log.author.fname }} {{ log.author.lname }}</p>
 
+</div>
+ <div class="side">
+
+</div>
+</div>
 </main>
 </template>
 
