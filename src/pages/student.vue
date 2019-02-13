@@ -1,11 +1,12 @@
 <template>
 <main class="student">
-  <div class="flex profilepage">
+  <div class="flex split">
   <div class="content">
        <h2 class="pagetitle">Student</h2>
        <h3>{{student.fname}} {{student.lname}}</h3>
         <p>ID: {{student.uid}}<br>
          Email: <a v-bind:href=" 'mailto:' + student.email">{{student.email}}</a></p>
+         <p>Date of birth: {{ student.dob | moment("from", "now", true) }} old</p>
        <h5>Course:</h5>
        <p v-for="(item, index) in courseLookup(student.coursecode)" :key="index">{{ item.title }}
          <br>Level: {{ item.level }}

@@ -5,7 +5,7 @@
   <button>Edit</button>
   <button>Delete</button>
 </div> -->
-<div class="flex colx2">
+<div class="flex colx2 split">
   <div class="content">
 <h4>{{ log.datestamp | moment("Do MMMM YYYY")}}</h4>
 

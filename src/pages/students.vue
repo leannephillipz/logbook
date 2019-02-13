@@ -4,8 +4,8 @@
 
 
   <div class="filters">
-    <label>
-  <input type="text" value="" placeholder="First name (e.g. John)" v-model="searchtext1"/></label>
+    <label class="row">
+  <input type="text" value="" placeholder="First name (e.g. John)" v-model="searchtext1"/>
   <input type="text" value="" placeholder="last name (e.g. Jones)" v-model="searchtext2"/></label>
   <div class="opts">
   <label><input type="checkbox" value="ehcp" v-model="ehcp">With EHCP</label>
@@ -32,7 +32,6 @@
           <li v-else><img :src="require('@/data/students/placeholder.jpg')" alt="no image" /></li>
           <li>{{ student.fname }} {{ student.lname }}</li>
           <li v-for="(item, index) in crossRef(student.coursecode)" :key="index">{{ item.title }}<br>Level {{ item.level }}</li>
-          <li>{{ student.dob | moment("from", "now", true) }} old</li>
           <li>
             <!-- <button @click="jumpTo(student.uid)">Profile</button> -->
             <router-link :to="{ name: 'student', params: { uid: student.uid }}">View Profile</router-link>

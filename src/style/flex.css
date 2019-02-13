@@ -53,14 +53,26 @@
         padding: 0;
     }
 }
-.flex .content:first-child {
+.flex.split .content{
     flex: 1 1 70%;
     padding-right: 20rem;
 }
 
-.flex .side:last-child {
+.flex.split .side {
     flex: 1 1 20%;
 }
+
+@media screen and (max-width: 1080px) { /*tablet*/
+  .flex.split {
+    -webkit-flex-flow: column nowrap;
+    flex-flow: column nowrap;
+  }
+  .flex.split:first-child , .flex.split:last-child {
+    flex: 0 0 100%;
+    padding-right:0;
+  }
+}
+
 
 
  /* .flex li.sm{flex: 0 1 100px;}

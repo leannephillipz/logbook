@@ -17,11 +17,7 @@ section.login {
 }
 
 
-.list ul {margin-bottom:0;}
-.list ul li:last-child{
-  padding:0;
-  text-align: right;
-}
+
 
 @media (max-width: 1080px) {
   .colhead {
@@ -30,6 +26,12 @@ section.login {
 }
 
 @media screen and (min-width: 1080px){
+
+  .list ul {margin-bottom:0;}
+  .list ul li:last-child{
+    padding:0;
+    text-align: right;
+  }
 
 .list ul li{
   padding-right:0.5rem;
@@ -83,10 +85,7 @@ section.login {
   align-items: start;
   justify-content: start;
 }
-/* .list .details:hover {
-  cursor:pointer;
-  background:rgba(255,255,255,0.1);
-} */
+
 }
 
 
@@ -105,7 +104,7 @@ padding:1rem 0.3rem; border-bottom: 1px solid rgba(160, 160, 160, 0.44);
 
 
 .topbar {
-	position:absolute;
+	position:fixed;
 	top:0px;
 	width:100%;
 	background-color: rgba(50,50,50,0.9);
@@ -127,49 +126,11 @@ padding:1rem 0.3rem; border-bottom: 1px solid rgba(160, 160, 160, 0.44);
     }
 
 
-/*
-nav {
-    position:fixed;
-    width: 240px;
-    min-width: 240px;
-    background:#F7F9FA;
-    background: rgba(50,50,50,0.3);
-    height: 100%;
-    padding: 1rem 3rem;;
-}
-
-  nav ul {
-    margin-top: 3rem;
-    text-align: right;
-    display: block;
-  }
-
-  nav a {color:rgba(255,255,255,0.8);}
-    nav a:hover {background-color: red;}
-
-  @media (max-width: 1000px) {
-
-    nav {
-        position:fixed;
-        width: auto;
-        min-width: auto;;
-    }
-
-    nav ul {
-      margin-top: 0;
-      text-align: left;
-
-    }
-  }
-nav a, menu a {display:block; margin: 1rem 0; padding-right: 11px;} */
-
 nav {
   display:block;
-  position: absolute;
-  padding: 1rem 3rem;
+  position:fixed;
   background: rgba(50,50,50,0.3);
   height: 100%;
-  position:fixed;
 }
 
 nav ul {
@@ -182,7 +143,6 @@ nav ul {
 nav li a {
   display: block;
   color: #fff;
-  padding: 8px 16px;
   text-decoration: none;
   transition: all 0.3s;
 }
@@ -197,26 +157,51 @@ nav li a:hover {
 }
 
 
-  @media screen and (min-width: 1080px) {
-    nav {
-      text-align: right;
-      min-width: 200px;
-      padding:0;
-      padding-top:80px;
-    }
-    .router-link-active {
-      border-right: 1px solid white;
-    }
+@media screen and (min-width: 1080px) { /*desktop*/
+
+  nav {
+    padding: 1rem 0 1rem 2rem;
+  }
+  nav ul {
+    margin-top: 5rem;
+    text-align:right;
+  }
+  nav ul a {
+      padding: 8px 3rem;
+  }
 }
-  @media screen and (max-width: 1080px) { /*mobile*/
+  @media screen and (max-width: 1080px) { /*tablet*/
+
+    .topbar ul {
+      padding: 1rem;
+    }
     .router-link-active {
       border-left: 1px solid white;
     }
     nav {
-      background-color: transparent;
+      transition: all 0.2s;
+      background-color:rgba(48, 107, 96, 0);
+      /* background-color: transparent; */
+      padding: 1rem;
+    }
+    nav.open {
+      background-color:rgba(48, 107, 96, 1);
+    }
+    nav a {
+      padding:0.5rem 1rem;
     }
     nav ul {
-      background-color:rgb(48, 107, 96);
+      margin:3rem;
+    }
+  }
+
+  @media screen and (max-width: 768px) { /*mobile*/
+
+    .topbar ul {
+      padding: 0.5rem;
+    }
+    nav {
+      padding: 0.5rem;
     }
   }
 
@@ -364,25 +349,26 @@ fieldset.log {
 
 
 
-.dark .topbar {
-      background: rgba(241, 240, 229, 0.05);
-}
+
 
 .dark .components section .item {
   background-color: rgba(0,0,0,0.2);
 }
 
 
+@media screen and (min-width: 1080px) { /*desktop*/
 
+  .dark .topbar {
+        background: rgba(241, 240, 229, 0.05);
+  }
 main .pagetitle{
-  position: absolute;
+    position: absolute;
     top: 40px;
     color: #71808c;}
+  }
 
   @media screen and (max-width: 1080px) {
-    main .pagetitle{
-      left: 100px;
-    }
+
   }
 
 
@@ -391,12 +377,15 @@ main .pagetitle{
   padding-right:10px;
 }
 
-
-.filters > *{
+.filters .row > *{
   display:inline-block;
   padding-right:10px;
   width:40%;
 }
+.filters .row > *:first-child {
+  margin-right:10px;
+}
+
 
 .log > *:first-child{
     flex: 1 1 100%;
@@ -479,7 +468,7 @@ main .pagetitle{
 
 .cards .card{
   margin-right: 10px;
-flex: 0 1 calc(16.6666666667% - 10px);
+
   background-color: rgba(167, 181, 180, 0.24);
   margin-bottom: 10px;
   padding: 20px;
@@ -499,6 +488,25 @@ flex: 0 1 calc(16.6666666667% - 10px);
 .card .img {
   margin-bottom: 10px;
 }
+
+@media screen and (min-width: 1080px) { /*desktop*/
+  .cards .card{
+    flex: 0 1 calc(16.6666666667% - 10px);
+  }
+}
+@media screen and (max-width: 1080px) { /*tablet*/
+  .cards .card {
+    flex: 1 1 20%;
+  }
+}
+
+@media screen and (max-width: 768px) { /*mobile*/
+
+  .cards .card {
+    flex: 1 1 45%;
+  }
+}
+
 
 
 @media screen and (max-width: 1080px)  {
@@ -565,29 +573,17 @@ flex: 0 1 calc(16.6666666667% - 10px);
 
 
 .list ul li:nth-child(2) button{
-  padding: 0.1em 0.9em;
-    background-color: #00000014;
-    color: #fff;
+
     text-transform: none;
     white-space: normal;
 }
 
-  @media screen and (max-width: 1080px) {
-    .list li:nth-child(2) button{
-      padding: 0;
-        background-color: transparent;
-        color: #fff;
-        text-transform: none;
-    }
+@media screen and (min-width: 1080px) {
+  .list ul li:nth-child(2) button{
+    padding: 0.1em 0.9em;
+      background-color: #00000014;
+      color: #fff;
+      text-transform: none;
+      white-space: normal;
   }
-
-/*
-  .icon{
-      color:#666
-  }
-  .icon:hover{
-      color:#000
-  }
-  .icon-close{
-  	color:red
-  } */
+}

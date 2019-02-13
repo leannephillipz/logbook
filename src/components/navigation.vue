@@ -1,7 +1,7 @@
 <template >
     <transition name="fade">
-        <nav>
-          <button @click="hidden = !hidden" class="mobileshow">≡</button>
+        <nav :class="!hidden ? 'open' : 'close'">
+          <button @click="hidden = !hidden" class="mobile">≡</button>
           <ul class="nav" :class="!hidden ? 'show' : 'hide'">
           <li @click="hidden = !hidden"><router-link to="/home">Home</router-link></li>
           <li @click="hidden = !hidden"><router-link to="/newlog">New log</router-link></li>

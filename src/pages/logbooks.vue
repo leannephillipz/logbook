@@ -30,7 +30,7 @@
         </li>
             <li v-for="(course, index) in getcourse" :key="index" class="details">
               <ul class="flex"  >
-                <li class="sm"><span class="mobileshow">Level: </span> {{ course.level }}</li>
+                <li class="sm"><span class="mobile">Level: </span> {{ course.level }}</li>
                   <li class="" @click="jumpToCourse(course.code)">
                     <!-- {{ course.title }} -->
 
