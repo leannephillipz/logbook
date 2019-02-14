@@ -20,7 +20,7 @@
       <label class='course'>
         <input type="text" v-model="searchFilter" />
         <ul class="dropdown" v-if="searchFilter.length > 1 && show == true">
-          <li v-for="(course, index) in courses()" :key="index" v-on:click="getdata(course.title, course.code, course.students)">
+          <li v-for="(course, index) in courses()" :key="index" v-on:click="getdata(course.title, course.coursecode, course.students)">
             {{ course.title }}
           </li>
         </ul>

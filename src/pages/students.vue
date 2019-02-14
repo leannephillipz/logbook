@@ -85,7 +85,7 @@ export default {
         // return this.allcourses
         const allcourses = this.allcourses
           return allcourses.filter(item => {
-               return item.code.match(code);
+               return item.coursecode.match(code);
              })
       },
       jumpTo(place) {

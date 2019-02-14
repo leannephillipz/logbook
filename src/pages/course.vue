@@ -6,7 +6,7 @@
 
 <div class="flex colx2">
 <div class="content">
-     <p><b>Code Code:</b> {{ course.code }}</p>
+     <p><b>Code Code:</b> {{ course.coursecode }}</p>
      <p><b>Level:</b> {{ course.level }}</p>
      <p><b>Industry / Discipline:</b> {{ course.discipline }}</p>
      <p><b>Room(s):</b> {{ course.room }}</p>
@@ -42,7 +42,7 @@ export default {
       }
   },
   created(){
-        this.course = this.courses.find(x => x.code === this.routeId);
+        this.course = this.courses.find(x => x.coursecode === this.routeId);
   },
   computed: {
 

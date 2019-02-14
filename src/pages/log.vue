@@ -56,7 +56,7 @@ export default {
       crossRefCourse(check) {
         // return this.allstudents
         return this.courses.filter(item => {
-               return item.code.includes(check);
+               return item.coursecode.includes(check);
              })
            }
     },

@@ -4,57 +4,58 @@
   <div class="content">
        <h2 class="pagetitle">Student</h2>
        <h3>{{student.fname}} {{student.lname}}</h3>
-        <p>ID: {{student.uid}}<br>
-         Email: <a v-bind:href=" 'mailto:' + student.email">{{student.email}}</a></p>
-         <p>Date of birth: {{ student.dob | moment("from", "now", true) }} old</p>
-       <h5>Course:</h5>
-       <p v-for="(item, index) in courseLookup(student.coursecode)" :key="index">{{ item.title }}
-         <br>Level: {{ item.level }}
-          <br>Code: {{student.coursecode}}
-        </p>
-
-      <div v-if="student.documents">
-             <h5>Documents:</h5>
-             <ul class="tags" >
-             <li v-for="(doc, index) in student.documents" :key="index">
-               {{ doc }}
-             </li>
-      </ul>
-      </div>
-
-      <div v-if="student.flags">
-       <h5>Key points to be aware of:</h5>
-       <ul v-if="student.flags" class="tags">
-       <li v-for="(flag, index) in student.flags" :key="index">
-         {{ flag }}
+       <ul class="details">
+        <li><h5>ID: </h5><p>{{student.uid}}</p></li>
+        <li><h5>Email:</h5> <p><a v-bind:href=" 'mailto:' + student.email">{{student.email}}</a></p></li>
+        <li><h5>Date of birth: </h5><p>{{ student.dob | moment("from", "now", true) }} old</p></li>
+        <li><h5>Course: </h5><p>{{ course.title }} Level: {{ course.level }} (Code: {{ course.coursecode }})</p></li>
+        <li v-if="student.documents">
+                 <h5>Documents:</h5>
+                 <ul class="tags">
+                 <li v-for="(doc, index) in student.documents" :key="index">
+                   {{ doc }}
+                 </li>
+          </ul>
+        </li>
+        <li v-if="student.flags">
+         <h5>Flags:</h5>
+         <ul v-if="student.flags" class="tags">
+         <li v-for="(flag, index) in student.flags" :key="index">
+           {{ flag }}
+         </li>
+       </ul>
+   </li>
+   <li v-if="student.examsupport">
+       <h5>Exam Support:</h5>
+       <ul class="tags">
+       <li v-for="(item, index) in student.examsupport" :key="index">
+         {{ item }}
        </li>
      </ul>
-   </div>
-
-   <div v-if="student.examsupport">
-     <h5>Exam Support requirements:</h5>
-     <ul class="tags">
-     <li v-for="(item, index) in student.examsupport" :key="index">
-       {{ item }}
-     </li>
-   </ul>
- </div>
-
-<div v-if="student.notes" >
-  <hr class="spacer"/>
-       <h5>Extra Notes:</h5>
-       <ul >
-       <li v-for="(note, index) in student.notes" :key="index">
-         {{ note.note }}
-       </li>
-     </ul>
-</div>
+ </li>
+ <li v-if="student.notes" >
+          <h5>Extra Notes:</h5>
+          <ul >
+          <li v-for="(note, index) in student.notes" :key="index">
+            {{ note.note }}
+          </li>
+        </ul>
+ </li>
+</ul>
 
 
-  <div v-if="logs" class="block">
+
+
+
+
+
+
+
+
+  <div v-if="logs" class="logs">
     <hr class="spacer"/>
        <h5 id="logs">Logs:</h5>
-         <ul class="cards" v-for="(log, index) in getlogs(student.uid)" :key="index">
+         <ul class="cards" v-for="(log, index) in logs" :key="index">
            <li>
              <p>{{ log.content | snippet }} <router-link :to="{ name: 'log', params: { id: log.id  }}">Read more...</router-link></p>
              <p>{{ log.datestamp | moment("DD/MM/YYYY")}}</p>
@@ -84,28 +85,28 @@ export default {
           allstudents: StudentStore.data.students,
           alllogs: LogStore.data.logs,
           allcourses: CourseStore.data.courses,
-          logs: ''
+          student: '',
+          logs: '',
+          course: ''
         }
     },
     created(){
           this.routeId = this.$route.params.uid
-          this.student = this.allstudents.find(x => x.uid === this.routeId);
+          this.student = this.allstudents.find(x => x.uid === this.routeId)
+          this.logs = this.alllogs.filter(log => {
+              return log.students.find(x => x === this.routeId)
+              })
+          this.course = this.allcourses.find(x => x.coursecode === this.student.coursecode)
+
         },
     computed: {
 
+
     },
     methods: {
-      getlogs(code){
-       let lookup = this.alllogs.filter(log => {
-           return log.students.find(x => x === code);
-           })
-           this.logs = lookup
-           return lookup
-
-      },
       courseLookup(code) {
         // return this.allcourses
-        const allcourses = this.allcourses
+        let allcourses = this.allcourses
           return allcourses.filter(item => {
                return item.code.match(code);
              })

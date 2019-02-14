@@ -31,17 +31,17 @@
             <li v-for="(course, index) in getcourse" :key="index" class="details">
               <ul class="flex"  >
                 <li class="sm"><span class="mobile">Level: </span> {{ course.level }}</li>
-                  <li class="" @click="jumpToCourse(course.code)">
+                  <li class="" @click="jumpToCourse(course.coursecode)">
                     <!-- {{ course.title }} -->
 
-                  <button @click="jumpTo(course.code)">{{ course.title }}</button>
+                  <button @click="jumpTo(course.coursecode)">{{ course.title }}</button>
 
                 </li>
                   <li >{{ course.qualification }}</li>
                   <li >{{ course.discipline }}</li>
                   <li >{{ course.campus }}</li>
                   <li class="sm">
-                      <button @click="jumpTo(course.code)" v-if="course.logs === true">Logs</button>
+                      <button @click="jumpTo(course.coursecode)" v-if="course.logs === true">Logs</button>
                   <p v-else>-</p>
                 </li>
                   </ul>

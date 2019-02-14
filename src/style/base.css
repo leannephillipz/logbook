@@ -33,20 +33,21 @@ main {
   }
 }
 
+
 @media screen and (min-width: 1080px) { /*desktop*/
-  main {
-    margin-left:220px;
-  }
+  main { margin-left:220px;}
+  main .pagetitle{
+      position: absolute;
+      top: 40px;
+      color: #71808c;
+    }
 }
 @media screen and (max-width: 1080px) { /*tablet*/
-  main {
-  }
+  main {}
 }
 
 @media screen and (max-width: 768px) { /*mobile*/
-  main {
-        padding: 100px 0.5rem 0.5rem;
-  }
+  main {padding: 100px 0.5rem 0.5rem;}
 }
 
 
@@ -111,9 +112,10 @@ h4 {
 }
 
 h5, h6 {
-   font-size: 1em;
+  font-size: 1em;
  margin:0;
  color:inherit;
+ font-weight: normal;
 }
 
 
@@ -373,7 +375,77 @@ nav ul, menu ul {list-style: none outside; display:inline;}
 nav li, menu li {margin:0; padding:0;}
 /* nav a, menu a {display:block; margin: 1rem 0;} */
 nav {z-index:2;}
+.topbar {
+	position:fixed;
+	top:0px;
+	width:100%;
+	background-color: rgba(50,50,50,0.9);
+	-webkit-transition: 0.5s;
+  -o-transition: 0.5s;
+  transition: 0.5s;
+  color:#fff;
+}
 
+.topbar ul{
+    float:right;
+    padding: 1rem 3rem;
+    margin-bottom:0;
+  }
+
+  .topbar ul li {
+      display: inline-block;
+      padding:0 0 0 30px;
+  }
+
+
+nav {
+  display:block;
+  position:fixed;
+  background: rgba(50,50,50,0.3);
+  height: 100%;
+}
+
+nav ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display: block;
+}
+
+nav li a {
+  display: block;
+  color: #fff;
+  text-decoration: none;
+  transition: all 0.3s;
+}
+
+nav li a:hover { background-color: #000;}
+
+.router-link-active { box-sizing: border-box;}
+
+@media screen and (min-width: 1080px) { /*desktop*/
+  nav {
+    padding: 1rem 0 1rem 2rem;
+  }
+  nav ul { margin-top: 5rem; text-align:right;  }
+  nav ul a { padding: 8px 3rem;  }
+}
+  @media screen and (max-width: 1080px) { /*tablet*/
+    .topbar ul {
+      padding: 1rem;
+    }
+    .router-link-active { border-left: 1px solid white; }
+    nav {
+      transition: all 0.2s; padding: 1rem; background-color:rgba(48, 107, 96, 0); /* background-color: transparent; */ }
+    nav.open { background-color:rgba(48, 107, 96, 1); }
+    nav a { padding:0.5rem 1rem; }
+    nav ul { margin:3rem; }
+  }
+
+  @media screen and (max-width: 768px) { /*mobile*/
+    .topbar ul {padding: 0.5rem;}
+    nav {padding: 0.5rem;}
+  }
 
 
 
