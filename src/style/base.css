@@ -43,12 +43,20 @@ main {
     }
 }
 @media screen and (max-width: 1080px) { /*tablet*/
-  main {}
+  main {
+    padding: 1.5rem;
+  }
+  main .pagetitle{
+      position: relative;
+      margin-top:100px;
+      color: #71808c;
+    }
 }
 
-@media screen and (max-width: 768px) { /*mobile*/
+/*mobile*/
+/* @media screen and (max-width: 768px) {
   main {padding: 100px 0.5rem 0.5rem;}
-}
+} */
 
 
 header {min-height:30vh; background:#999;padding:0;}
@@ -403,6 +411,7 @@ nav {
   position:fixed;
   background: rgba(50,50,50,0.3);
   height: 100%;
+  transition: all 0.2s;
 }
 
 nav ul {
@@ -424,28 +433,28 @@ nav li a:hover { background-color: #000;}
 .router-link-active { box-sizing: border-box;}
 
 @media screen and (min-width: 1080px) { /*desktop*/
-  nav {
-    padding: 1rem 0 1rem 2rem;
-  }
+  nav {padding: 1rem 0 1rem 2rem;}
   nav ul { margin-top: 5rem; text-align:right;  }
-  nav ul a { padding: 8px 3rem;  }
+  nav ul a { padding: 8px 3rem; }
+  .router-link-active { border-right: 1px solid white; }
 }
   @media screen and (max-width: 1080px) { /*tablet*/
     .topbar ul {
-      padding: 1rem;
+      padding: 1rem 1.5rem;
     }
     .router-link-active { border-left: 1px solid white; }
     nav {
-      transition: all 0.2s; padding: 1rem; background-color:rgba(48, 107, 96, 0); /* background-color: transparent; */ }
+      background-color:rgba(48, 107, 96, 0); padding-top:1rem; padding-left:1rem; width:100vw;}
     nav.open { background-color:rgba(48, 107, 96, 1); }
     nav a { padding:0.5rem 1rem; }
-    nav ul { margin:3rem; }
+    nav ul { width:calc(100% - 6rem); margin: 1rem 3rem;}
   }
 
-  @media screen and (max-width: 768px) { /*mobile*/
+/*mobile*/
+  /* @media screen and (max-width: 768px) {
     .topbar ul {padding: 0.5rem;}
     nav {padding: 0.5rem;}
-  }
+  } */
 
 
 

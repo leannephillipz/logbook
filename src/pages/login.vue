@@ -10,7 +10,7 @@ Name <input type="text" v-model="username" value="" placeholder="user name" />
 Password <input type="password" v-model="password" value="" placeholder="password" />
 </label>
 <button class="btn" v-on:click="login">Login</button>
-<p>{{feedback}}</p>
+<p>{{feedback}}</p>{{ getNumbers }} {{ getData }}
 </form>
 </div>
 </section>
@@ -31,6 +31,7 @@ export default {
     }
   },
   methods: {
+
     login(e) {
       e.preventDefault()
 
@@ -53,7 +54,15 @@ export default {
       // return this.$emit({'authlogin': true})
       // return this.$parent.authlogin = true
     }
-      }
+  },
+  computed: {
+    getNumbers() {
+      return this.$store.getters.getNumbers;
+    },
+    getData() {
+      return this.$store.getters.getData;
+    }
+  }
 
 }
 

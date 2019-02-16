@@ -23,7 +23,7 @@
               <li class="sm">Level</li>
               <li class="">Title</li>
               <li class="">Qualification</li>
-              <li class="">Industry / Discipline<!-- / Discipline / Department--></li>
+              <li class="">Industry<!-- / Discipline / Department--></li>
               <li>Campus</li>
               <li class="sm"></li>
           </ul>

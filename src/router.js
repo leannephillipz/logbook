@@ -12,6 +12,7 @@ import Newlog from './pages/newlog.vue'
 import Search from './pages/search.vue'
 import Course from './pages/course.vue'
 import Newstudent from './pages/newstudent.vue'
+import Store from "@/store.js";
 
 Vue.use(VueRouter)
 
@@ -119,19 +120,20 @@ const router = new VueRouter({
 
 })
 
-// router.beforeEach((to, from, next) => {
-//   if (to.matched.some(record => record.meta.requiresAuth)) {
-//     console.log(router.app.$root)
-//     // const auth = router.app.$data
-//     // if (auth.authlogin == true) {
-//     //   console.log(to);
-//     //   next()
-//     // } else if (auth == false){
-//     //   console.log("requiresAuth");
-//     //   next({ name: 'login' })
-//     // }
-//   }
-//   next() // make sure to always call next()!
-// })
+router.beforeEach((to, from, next) => {
+  if (to.matched.some(record => record.meta.requiresAuth)) {
+    console.log(router.app.$root)
+    console.log(Store.state.authlogin)
+    // const auth = router.app.$data
+    // if (auth.authlogin == true) {
+    //   console.log(to);
+    //   next()
+    // } else if (auth == false){
+    //   console.log("requiresAuth");
+    //   next({ name: 'login' })
+    // }
+  }
+  next() // make sure to always call next()!
+})
 
 export default router
