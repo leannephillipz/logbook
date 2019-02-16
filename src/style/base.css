@@ -48,9 +48,11 @@ main {
   }
   main .pagetitle{
       position: relative;
-      margin-top:100px;
       color: #71808c;
     }
+  .container {
+      padding-top:100px;
+  }
 }
 
 /*mobile*/
