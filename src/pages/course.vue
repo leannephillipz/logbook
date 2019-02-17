@@ -13,6 +13,18 @@
      <p><b>Campus:</b> {{ course.campus }}</p>
      <p><b>Tutor:</b> {{ course.tutor }}</p>
      <p><b>Award:</b> {{ course.qualification }}</p>
+
+     <!-- <div v-if="logs" class="logs">
+       <hr class="spacer"/>
+          <h5 id="logs">Logs:</h5>
+            <ul class="cards" v-for="(log, index) in logs" :key="index">
+              <li>
+                <p>{{ log.content | snippet }} <router-link :to="{ name: 'log', params: { id: log.id  }}">Read more...</router-link></p>
+                <p>{{ log.datestamp | moment("DD/MM/YYYY")}}</p>
+            </li>
+            </ul>
+            </div> -->
+
      </div>
      <div class="side">
        <p>Students:</p>
@@ -29,6 +41,7 @@
 
 <script>
 import CourseStore from '@/data/coursestore.js'
+import LogStore from '@/data/logstore.js'
 import StudentStore from '@/data/studentstore.js'
 
 export default {
@@ -36,13 +49,18 @@ export default {
   data() {
     return {
         routeId: this.$route.params.code,
-        courses: CourseStore.data.courses,
+        allcourses: CourseStore.data.courses,
+        alllogs: LogStore.data.logs,
         allstudents: StudentStore.data.students,
-        course: ''
+        course: '',
+        logs: '',
       }
   },
   created(){
-        this.course = this.courses.find(x => x.coursecode === this.routeId);
+        this.course = this.allcourses.find(x => x.coursecode === this.routeId);
+        // this.logs = this.alllogs.filter(log => {
+        //     return log.coursecode.match(x => x === this.routeId)
+        //     })
   },
   computed: {
 

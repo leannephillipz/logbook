@@ -5,19 +5,19 @@
 
 <!-- <p>New id:{{newlog.id}} </p> -->
 
-  <fieldset class="group">
+  <div class="group">
   <label class="date">Date:
   <input type="date" :value="newlog.datestamp" />
   </label>
   <label class="time">Duration:
   <input type="number" :value="newlog.duration" />
   </label>
-  </fieldset>
+</div>
 
 
     <fieldset class="group autocomplete">
     <div>
-      <label class='course'>
+      <label class='course'>Course:
         <input type="text" v-model="searchFilter" />
         <ul class="dropdown" v-if="searchFilter.length > 1 && show == true">
           <li v-for="(course, index) in courses()" :key="index" v-on:click="getdata(course.title, course.coursecode, course.students)">
@@ -33,23 +33,22 @@
 
     </fieldset>
 
-  <fieldset class="group" v-if="validcourse == true">
-    <div class="sopts">
-    <p>Select student(s):</p>
-      <ul v-for="(person, index) in suggeststudents" :key="index">
-        <li><label>
+  <fieldset class="opts" v-if="validcourse == true">
+      <p>Select student(s):</p>
+    <div v-for="(person, index) in suggeststudents" :key="index">
+      <label>
           <input type="checkbox" :value="person.uid" v-model="newlog.students" >
-          {{ person.fname }} {{ person.lname }}</label>
-      </li>
-      </ul>
+          {{ person.fname }} {{ person.lname }}
+        </label>
     </div>
   </fieldset>
 
 
-  <div class="log flex" v-if="newlog.students.length">
+  <div class="data" v-if="newlog.students.length">
     <label>Log:
     <textarea placeholder="This is what happened today..." rows="7" v-model="newlog.content"/>
     </label>
+    <div>
     <div>
     <textarea placeholder="Strategies used..." rows="7" v-model="newlog.strategies"/>
     <textarea placeholder="Points to consider..." rows="7" v-model="newlog.consideration"/>
@@ -58,7 +57,7 @@
         <textarea placeholder="Progress made during session..." rows="7" v-model="newlog.progress"/>
         <textarea placeholder="Targets for next time..." rows="7" v-model="newlog.targets"/>
     </div>
-
+</div>
   </div>
     <button v-if="newlog.students.length" v-on:click.prevent="post" class="btn">Save new log</button>
     </form>

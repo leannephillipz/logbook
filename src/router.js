@@ -12,7 +12,6 @@ import Newlog from './pages/newlog.vue'
 import Search from './pages/search.vue'
 import Course from './pages/course.vue'
 import Newstudent from './pages/newstudent.vue'
-import Store from "@/store.js";
 
 Vue.use(VueRouter)
 
@@ -29,15 +28,20 @@ const router = new VueRouter({
   // //base: __dirname,
   // base: process.env.BASE_URL,
   routes: [
-    { path: '/',
-      redirect: to => {
-        const { authlogin } = to
-        if (authlogin) {
-          return { path: '/home' }
-        } else {
-          return { path: '/login' }
-        }
-      }
+    // { path: '/',
+    //   redirect: function() {
+    //     const auth = this.$root.$data.authlogin
+    //     if (auth) {
+    //       return { path: '/home' }
+    //     } else {
+    //       return { path: '/login' }
+    //     }
+    //   }
+    // },
+    {
+      path: '/',
+      name: 'login',
+      component: Login
     },
     {
       path: '/login',
@@ -120,20 +124,20 @@ const router = new VueRouter({
 
 })
 
-router.beforeEach((to, from, next) => {
-  if (to.matched.some(record => record.meta.requiresAuth)) {
-    console.log(router.app.$root)
-    console.log(Store.state.authlogin)
-    // const auth = router.app.$data
-    // if (auth.authlogin == true) {
-    //   console.log(to);
-    //   next()
-    // } else if (auth == false){
-    //   console.log("requiresAuth");
-    //   next({ name: 'login' })
-    // }
-  }
-  next() // make sure to always call next()!
-})
+// router.beforeEach((to, from, next) => {
+//   if (to.matched.some(record => record.meta.requiresAuth)) {
+//     // console.log(router.app.$root)
+//      console.log(router.app.$root.$data.authlogin)
+//     const auth = router.app.$root.$data.authlogin
+//     if (auth == true) {
+//       console.log(to);
+//       next()
+//     } else if (auth == false){
+//       console.log("requiresAuth");
+//       next({ name: 'login' })
+//     }
+//   }
+//   next() // make sure to always call next()!
+// })
 
 export default router

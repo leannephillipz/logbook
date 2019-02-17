@@ -10,7 +10,7 @@ Name <input type="text" v-model="username" value="" placeholder="user name" />
 Password <input type="password" v-model="password" value="" placeholder="password" />
 </label>
 <button class="btn" v-on:click="login">Login</button>
-<p>{{feedback}}</p>{{ getNumbers }} {{ getData }}
+<p>{{feedback}}</p>
 </form>
 </div>
 </section>
@@ -36,10 +36,8 @@ export default {
       e.preventDefault()
 
     if (this.username == "admin" && this.password == "enter") {
-
       this.$root.authlogin = true
-      return this.$router.push({ name: 'home'})
-      this.feedback = "Correct"
+      this.$router.push({ name: 'home'})
     } else {
       this.feedback = "Sorry, this login data is invalid, try again."
     }
@@ -55,16 +53,7 @@ export default {
       // return this.$parent.authlogin = true
     }
   },
-  computed: {
-    getNumbers() {
-      return this.$store.getters.getNumbers;
-    },
-    getData() {
-      return this.$store.getters.getData;
-    }
-  }
-
+  computed: {}
 }
-
 
 </script>

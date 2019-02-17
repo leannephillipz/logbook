@@ -1,5 +1,5 @@
 <template>
-<main>
+<main class="log">
 
   <!-- <div class="btns">
   <button>Edit</button>

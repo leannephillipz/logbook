@@ -3,10 +3,14 @@
   <h2 class="pagetitle">Students</h2>
 
 
-  <div class="filters">
-    <label class="row">
+  <div class="filters group">
+    <label>
   <input type="text" value="" placeholder="First name (e.g. John)" v-model="searchtext1"/>
-  <input type="text" value="" placeholder="last name (e.g. Jones)" v-model="searchtext2"/></label>
+  </label>
+    <label>
+      <input type="text" value="" placeholder="last name (e.g. Jones)" v-model="searchtext2"/>
+    </label>
+
   <div class="opts">
   <label><input type="checkbox" value="ehcp" v-model="ehcp">With EHCP</label>
   <label><input type="checkbox" value="discosure" v-model="discosure">With student disclosure</label>
@@ -67,18 +71,6 @@ export default {
         }
     },
 
-    // methods: {
-    //     filteredStudents() {
-    //       if (this.ehcp === true) {
-    //       this.test = "hello"
-    //     }
-    //   }
-    // },
-    // watch: {
-    //   ehcp() {
-    //     if(this.ehcp == true)
-    //   }
-    // },
 
     methods: {
       crossRef(code) {
