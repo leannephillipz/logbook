@@ -37,5 +37,8 @@ export default {
     .show {
         display: block;
     }
+    .show {
+      width: calc(100vw - 7rem);
+    }
 }
 </style>

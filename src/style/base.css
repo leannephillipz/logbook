@@ -50,9 +50,6 @@ main {
       position: relative;
       color: #71808c;
     }
-  .container {
-      padding-top:100px;
-  }
 }
 
 /*mobile*/
@@ -434,7 +431,7 @@ nav li a:hover { background-color: #000;}
 @media screen and (max-width: 1080px) { /*tablet*/
     .topbar ul {padding: 1rem 1.5rem;  }
     .router-link-active { border-left: 1px solid white; }
-    nav {  background-color:rgba(48, 107, 96, 0); padding-top:1rem; padding-left:1rem; width:100vw;}
+    nav {  background-color:rgba(48, 107, 96, 0); padding-top:1rem; padding-left:1rem;}
     nav.open { background-color:rgba(48, 107, 96, 1); }
     nav a { padding:0.5rem 1rem; }
     nav ul { width:calc(100% - 6rem); margin: 1rem 3rem;}

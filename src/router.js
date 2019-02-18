@@ -40,8 +40,7 @@ const router = new VueRouter({
     // },
     {
       path: '/',
-      name: 'login',
-      component: Login
+      redirect: '/login'
     },
     {
       path: '/login',
