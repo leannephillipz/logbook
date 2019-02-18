@@ -45,6 +45,7 @@ main {
 @media screen and (max-width: 1080px) { /*tablet*/
   main {
     padding: 1.5rem;
+    padding-top: 100px;
   }
   main .pagetitle{
       position: relative;
@@ -140,7 +141,12 @@ a:hover { }
 /* Forms
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 
-form {overflow: auto; }
+form {
+  overflow: auto;
+  margin: 0;
+  padding: 0;
+  width:100%;;
+}
 
 
 input, textarea, select, button { color: #666; }
@@ -180,6 +186,9 @@ select:hover {
 }
 
 
+form button, form input[type="submit"]  {
+  float:right;
+}
 input[type="submit"] {width:auto; float:right; border:0;}
 
 input[type="radio"], input[type="checkbox"]{
@@ -238,12 +247,7 @@ fieldset .field-group{
 .inline input {width:auto;}
 
 
-@media (max-width: 750px) {
-    form {
-        margin: 0;
-        padding: 0;
-        width:100%;;
-    }
+@media (max-width: 1080px) {
     form div {
         padding-top: 0;
     }
