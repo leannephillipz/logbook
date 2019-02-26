@@ -12,6 +12,7 @@ import Newlog from './pages/newlog.vue'
 import Search from './pages/search.vue'
 import Course from './pages/course.vue'
 import Newstudent from './pages/newstudent.vue'
+import 404 from './pages/404.vue'
 
 Vue.use(VueRouter)
 
@@ -114,6 +115,15 @@ const router = new VueRouter({
       name: 'newstudent',
       component: Newstudent,
       meta: { requiresAuth: true }
+    },
+    {
+      path: '/404',
+      name: '404',
+      component: Error404
+    },
+    {
+      path: '*',
+      redirect: '/404'
     }
   ],
   methods: {},
