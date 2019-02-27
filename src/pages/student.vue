@@ -73,49 +73,50 @@
 </template>
 
 <script>
-import StudentStore from '@/data/studentstore.js'
-import LogStore from '@/data/logstore.js'
-import CourseStore from '@/data/coursestore.js'
+// import StudentStore from '@/data/studentstore.js'
+// import LogStore from '@/data/logstore.js'
+// import CourseStore from '@/data/coursestore.js'
 
 export default {
   name: 'student',
     data() {
         return {
           routeId: this.$route.params.id,
-          allstudents: StudentStore.data.students,
-          alllogs: LogStore.data.logs,
-          allcourses: CourseStore.data.courses,
-          student: '',
-          logs: '',
-          course: ''
+          // allstudents: StudentStore.data.students,
+          // alllogs: LogStore.data.logs,
+          // allcourses: CourseStore.data.courses,
+          // student: '',
+          // logs: '',
+          // course: ''
         }
     },
+
     created(){
           this.routeId = this.$route.params.uid
-          this.student = this.allstudents.find(x => x.uid === this.routeId)
-          this.logs = this.alllogs.filter(log => {
-              return log.students.find(x => x === this.routeId)
-              })
-          this.course = this.allcourses.find(x => x.coursecode === this.student.coursecode)
-
         },
+
     computed: {
-
-
-    },
-    methods: {
-      courseLookup(code) {
-        // return this.allcourses
-        let allcourses = this.allcourses
-          return allcourses.filter(item => {
-               return item.code.match(code);
-             })
+      student () {
+        return this.$store.getters.getstudent(this.routeId)
       },
-      updatedata: function(){
-        this.routeId = this.$route.params.uid
-        this.student = this.allstudents.find(x => x.uid === this.routeId);
+      logs (){
+        return this.$store.getters.logsbystudent(this.routeId)
+      },
+      course (){
+        return this.$store.getters.coursebystudent(this.student.coursecode)
       }
     },
+
+    methods: {
+      updatedata: function(){
+        this.routeId = this.$route.params.uid
+        this.student = this.$store.getters.getstudent(this.routeId)
+        this.course = this.$store.getters.coursebycode(this.student.coursecode)
+        this.logs = this.$store.getters.logsbystudent(this.routeId)
+      }
+    },
+
+
     watch: {
       $route () {
         this.updatedata()

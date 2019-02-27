@@ -64,7 +64,7 @@ export default {
           discosure: false,
           searchtext1: '',
           searchtext2: '',
-          allstudents: StudentStore.data.students,
+          // allstudents: StudentStore.data.students,
           allcourses: CourseStore.data.courses,
           queryall: true,
           test: false
@@ -86,6 +86,9 @@ export default {
     },
     computed: {
 
+        allstudents () {
+          return this.$store.getters.studentstore
+        },
        filteredStudents() {
           var allstudents = this.allstudents
 

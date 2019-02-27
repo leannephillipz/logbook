@@ -6,6 +6,7 @@ import Resources from 'vue-resource'
 import Moment from 'moment'
 import VueMoment from 'vue-moment'
 import Vuex from 'vuex'
+import { store } from './store.js'
 
 Vue.use(Vuex)
 
@@ -29,6 +30,7 @@ Vue.filter('snippet', val => {
 
 new Vue({
   router: Router,
+  store,
   render: h => h(App),
   data () {
     return {

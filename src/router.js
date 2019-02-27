@@ -2,9 +2,9 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from './pages/home.vue'
 import About from './pages/about.vue'
-import Logbooks from './pages/logbooks.vue'
+import Courses from './pages/courses.vue'
 import Log from './pages/log.vue'
-import Logs from './pages/logs.vue'
+// import Logs from './pages/logs.vue'
 import Students from './pages/students.vue'
 import Student from './pages/student.vue'
 import Login from './pages/login.vue'
@@ -12,7 +12,7 @@ import Newlog from './pages/newlog.vue'
 import Search from './pages/search.vue'
 import Course from './pages/course.vue'
 import Newstudent from './pages/newstudent.vue'
-import 404 from './pages/404.vue'
+import Error404 from './pages/404.vue'
 
 Vue.use(VueRouter)
 
@@ -62,17 +62,17 @@ const router = new VueRouter({
       meta: { requiresAuth: true }
     },
     {
-      path: '/logbooks',
-      name: 'logbooks',
-      component: Logbooks,
+      path: '/courses',
+      name: 'courses',
+      component: Courses,
       meta: { requiresAuth: true }
     },
-    {
-      path: '/logs/:code',
-      name: 'logs',
-      component: Logs,
-      meta: { requiresAuth: true }
-    },
+    // {
+    //   path: '/logs/:code',
+    //   name: 'logs',
+    //   component: Logs,
+    //   meta: { requiresAuth: true }
+    // },
     {
       path: '/log/:id',
       name: 'log',

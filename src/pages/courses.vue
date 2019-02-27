@@ -25,7 +25,7 @@
               <li class="">Qualification</li>
               <li class="">Industry<!-- / Discipline / Department--></li>
               <li>Campus</li>
-              <li class="sm"></li>
+              <!-- <li class="sm"></li> -->
           </ul>
         </li>
             <li v-for="(course, index) in getcourse" :key="index" class="details">
@@ -40,10 +40,10 @@
                   <li >{{ course.qualification }}</li>
                   <li >{{ course.discipline }}</li>
                   <li >{{ course.campus }}</li>
-                  <li class="sm">
+                  <!-- <li class="sm">
                       <button @click="jumpTo(course.coursecode)" v-if="course.logs === true">Logs</button>
                   <p v-else>-</p>
-                </li>
+                </li> -->
                   </ul>
           </li>
         </ul>
@@ -59,7 +59,7 @@ export default {
   name: 'logbooks',
   data() {
     return {
-        courses: CourseStore.data.courses,
+        // courses: CourseStore.data.courses,
         campus: [
           {"name": "Brighton", "value": "Brighton"},
           {"name": "Shoreham", "value": "Shoreham"},
@@ -82,6 +82,9 @@ export default {
         }
   },
   computed: {
+    courses () {
+      return this.$store.getters.coursestore
+    },
       getcourse: function(){
           const v = this
           const courses = v.courses

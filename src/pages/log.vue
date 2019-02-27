@@ -61,6 +61,9 @@ export default {
            }
     },
     computed: {
+      getlog (){
+        
+      },
       getstudent: function(){
             const newarr = new Array()
             this.log.students.forEach(el1 => {

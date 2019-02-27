@@ -14,22 +14,12 @@
      <p><b>Tutor:</b> {{ course.tutor }}</p>
      <p><b>Award:</b> {{ course.qualification }}</p>
 
-     <!-- <div v-if="logs" class="logs">
-       <hr class="spacer"/>
-          <h5 id="logs">Logs:</h5>
-            <ul class="cards" v-for="(log, index) in logs" :key="index">
-              <li>
-                <p>{{ log.content | snippet }} <router-link :to="{ name: 'log', params: { id: log.id  }}">Read more...</router-link></p>
-                <p>{{ log.datestamp | moment("DD/MM/YYYY")}}</p>
-            </li>
-            </ul>
-            </div> -->
-
      </div>
      <div class="side">
        <p>Students:</p>
        <ul class="tags">
-       <li v-for="(student, index) in getstudent" :key="student.uid" :class="[student.documents, { tag: student.documents[0] }]">
+         <!-- <li v-for="student in students"  :class="[student.documents, { tag: student.documents[0] }]"> -->
+       <li v-for="student in students">
          <router-link :to="{ name: 'student', params: { uid: student.uid  }}">{{ student.fname}} {{ student.lname}}</router-link>
        </li>
      </ul>
@@ -40,45 +30,46 @@
 
 
 <script>
-import CourseStore from '@/data/coursestore.js'
-import LogStore from '@/data/logstore.js'
-import StudentStore from '@/data/studentstore.js'
+// import CourseStore from '@/data/coursestore.js'
+// import LogStore from '@/data/logstore.js'
+// import StudentStore from '@/data/studentstore.js'
 
 export default {
   name: 'course',
   data() {
     return {
         routeId: this.$route.params.code,
-        allcourses: CourseStore.data.courses,
-        alllogs: LogStore.data.logs,
-        allstudents: StudentStore.data.students,
-        course: '',
-        logs: '',
+        // allcourses: CourseStore.data.courses,
+        // alllogs: LogStore.data.logs,
+        // allstudents: StudentStore.data.students,
+        // course: '',
+        // logs: '',
       }
   },
-  created(){
-        this.course = this.allcourses.find(x => x.coursecode === this.routeId);
-        // this.logs = this.alllogs.filter(log => {
-        //     return log.coursecode.match(x => x === this.routeId)
-        //     })
-  },
+
   computed: {
+    course (){
+      return this.$store.getters.coursebycode(this.routeId)
+    },
+    students (){
+      return this.$store.getters.studentsbycourse(this.course.coursecode)
+    }
 
-    getstudent: function(){
-          let allstudents = this.course.students
-
-          const newarr = new Array()
-          allstudents.forEach(thisval => {
-            let thisuid = thisval
-
-            let filtering = this.allstudents.filter((item) => {
-              return item.uid === thisuid
-               })
-            newarr.push(filtering[0])
-
-              })
-              return newarr
-            }
+    // getstudent: function(){
+    //       let allstudents = this.course.students
+    //
+    //       const newarr = new Array()
+    //       allstudents.forEach(thisval => {
+    //         let thisuid = thisval
+    //
+    //         let filtering = this.allstudents.filter((item) => {
+    //           return item.uid === thisuid
+    //            })
+    //         newarr.push(filtering[0])
+    //
+    //           })
+    //           return newarr
+    //         }
 
 }
 }
