@@ -12,7 +12,7 @@
 	},
 	"flags": ["Dyslexia"],
 	"examsupport": ["Reader", "Scriber"],
-	"documents": ["EHCP", "Discosure"],
+	"documents": ["ehcp", "discosure"],
 	"status": "active",
 	"notes": {
 		"0": {
@@ -38,7 +38,7 @@
 	},
 	"flags": ["Dyslexia"],
 	"examsupport": ["Reader", "Scriber"],
-	"documents": ["Discosure"],
+	"documents": ["discosure"],
 	"status": "active",
 	"notes": {
 		"0": {
@@ -63,7 +63,7 @@
 		"alt": "Flintstone"
 	},
 	"flags": ["Dyslexia"],
-	"documents": ["EHCP"],
+	"documents": ["ehcp"],
 	"status": "active",
 	"notes": {
 		"0": {
@@ -88,7 +88,7 @@
 		"alt": "Flintstone"
 	},
 	"flags": ["Dyslexia"],
-	"documents": ["Discosure"],
+	"documents": ["discosure"],
 	"status": "active",
 	"notes": {
 		"0": {
@@ -113,7 +113,7 @@
 		"alt": "Bear"
 	},
 	"flags": ["Dyslexia"],
-	"documents": ["Discosure"],
+	"documents": ["discosure"],
 	"status": "active",
 	"notes": {
 		"0": {
@@ -138,7 +138,7 @@
 		"alt": "Jetson"
 	},
 	"flags": ["Dyslexia"],
-	"documents": ["EHCP"],
+	"documents": ["ehcp"],
 	"status": "active",
 	"notes": {
 		"0": {
@@ -188,7 +188,7 @@
 		"alt": "Coyote"
 	},
 	"flags": ["Dyslexia"],
-	"documents": ["Discosure"],
+	"documents": ["discosure"],
 	"status": "active",
 	"notes": {
 		"0": {
@@ -213,7 +213,7 @@
 		"alt": "Foghorn Leghorn"
 	},
 	"flags": ["Writing"],
-	"documents": ["Discosure"],
+	"documents": ["discosure"],
 	"status": "active",
 	"notes": {
 		"0": {

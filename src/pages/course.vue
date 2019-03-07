@@ -19,7 +19,7 @@
        <p>Students:</p>
        <ul class="tags">
          <!-- <li v-for="student in students"  :class="[student.documents, { tag: student.documents[0] }]"> -->
-       <li v-for="student in students">
+       <li v-for="student in students" :class="student.documents">
          <router-link :to="{ name: 'student', params: { uid: student.uid  }}">{{ student.fname}} {{ student.lname}}</router-link>
        </li>
      </ul>
@@ -30,20 +30,14 @@
 
 
 <script>
-// import CourseStore from '@/data/coursestore.js'
-// import LogStore from '@/data/logstore.js'
-// import StudentStore from '@/data/studentstore.js'
+
 
 export default {
   name: 'course',
   data() {
     return {
         routeId: this.$route.params.code,
-        // allcourses: CourseStore.data.courses,
-        // alllogs: LogStore.data.logs,
-        // allstudents: StudentStore.data.students,
-        // course: '',
-        // logs: '',
+
       }
   },
 
@@ -54,22 +48,6 @@ export default {
     students (){
       return this.$store.getters.studentsbycourse(this.course.coursecode)
     }
-
-    // getstudent: function(){
-    //       let allstudents = this.course.students
-    //
-    //       const newarr = new Array()
-    //       allstudents.forEach(thisval => {
-    //         let thisuid = thisval
-    //
-    //         let filtering = this.allstudents.filter((item) => {
-    //           return item.uid === thisuid
-    //            })
-    //         newarr.push(filtering[0])
-    //
-    //           })
-    //           return newarr
-    //         }
 
 }
 }
