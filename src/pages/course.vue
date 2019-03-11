@@ -14,6 +14,19 @@
      <p><b>Tutor:</b> {{ course.tutor }}</p>
      <p><b>Award:</b> {{ course.qualification }}</p>
 
+
+     <div v-if="logs" class="logs">
+       <hr class="spacer"/>
+          <h5 id="logs">Logs:</h5>
+            <ul class="cards" v-for="(log, index) in logs" :key="index">
+              <li>
+                <p>{{ log.content | snippet }} <router-link :to="{ name: 'log', params: { id: log.id  }}">Read more...</router-link></p>
+                <p>{{ log.datestamp | moment("DD/MM/YYYY")}}</p>
+            </li>
+            </ul>
+            </div>
+
+
      </div>
      <div class="side">
        <p>Students:</p>
@@ -47,7 +60,10 @@ export default {
     },
     students (){
       return this.$store.getters.studentsbycourse(this.course.coursecode)
-    }
+    },
+    logs (){
+      return this.$store.getters.logsbycourse(this.course.coursecode)
+    },
 
 }
 }

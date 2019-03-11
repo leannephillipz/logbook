@@ -53,10 +53,10 @@
 </template>
 
 <script>
-import CourseStore from '@/data/coursestore.js'
+// import CourseStore from '@/data/coursestore.js'
 
 export default {
-  name: 'logbooks',
+  name: 'courses',
   data() {
     return {
         // courses: CourseStore.data.courses,
@@ -74,7 +74,7 @@ export default {
       }
   },
   methods: {
-    jumpTo(place) {
+    jumpToLog(place) {
             this.$router.push({ name: 'logs', params: { code: place} })
         },
     jumpToCourse(place) {
@@ -97,7 +97,7 @@ export default {
                return item.title.toLowerCase().includes(v.search.title.toLowerCase())
                 })
 
-          return courses.slice(0, v.split)
+          return courses.slice(0, v.split) //only show 10
 
       }
   }

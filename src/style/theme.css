@@ -86,7 +86,7 @@ font-size: 90%;
 
 @media screen and (min-width: 1080px){
 .list ul {margin-bottom:0;}
-.list ul li:last-child{padding:0;text-align: right;}
+.list ul li:last-child{padding:0;}
 .list ul li{padding-right:0.5rem;flex: 0 1 100px;}
 .logs .list ul li{flex: 0 1 150px;}
 .logs .list ul li:first-child, .logs .list ul li:last-child{flex: 0 1 100px;}
@@ -95,7 +95,6 @@ font-size: 90%;
 .logbooks .list ul li{flex: 0 1 150px;}
 .logbooks .list ul li:first-child{flex: 0 1 50px;}
 .logbooks .list ul li:nth-child(2){flex: 1 1 100px;}
-.logbooks .list ul li:last-child{flex: 0 1 80px;}
 /* .students .list ul li{flex: 1 0 100px;}
 .students .list ul li:first-child, .students .list ul li:last-child{flex: 0 1 80px;}
 .students .list ul li:nth-child(3){flex: 1 0 300px;} */
@@ -177,7 +176,7 @@ font-size: 90%;
 
 
 
-.student .logs ul li p:first-child{
+.logs ul li p:first-child{
       padding:1rem;
       margin:1rem 0;
       box-sizing: border-box;
@@ -206,8 +205,8 @@ font-size: 90%;
   color:#fff;
 }
 
-.dark .student .logs ul li p:first-child{background-color: rgba(0,0,0,0.2);}
-.dark .student .logs ul li p:last-child{color:#78818a;}
+.dark .logs ul li p:first-child{background-color: rgba(0,0,0,0.2);}
+.dark .logs ul li p:last-child{color:#78818a;}
 .dark .components section .item {background-color: rgba(0,0,0,0.2);}
 
 @media screen and (min-width: 1080px) { /*desktop*/

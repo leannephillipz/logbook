@@ -7,8 +7,11 @@
        <ul class="details">
         <li><h5>ID: </h5><p>{{student.uid}}</p></li>
         <li><h5>Email:</h5> <p><a v-bind:href=" 'mailto:' + student.email">{{student.email}}</a></p></li>
-        <li><h5>Date of birth: </h5><p>{{ student.dob | moment("from", "now", true) }} old</p></li>
-        <li><h5>Course: </h5><p>{{ course.title }} Level: {{ course.level }} (Code: {{ course.coursecode }})</p></li>
+        <li><h5>Date of birth: </h5><p>{{ student.dob }}</p></li>
+        <li><h5>Age: </h5><p>{{ student.dob | moment("from", "now", true) }} old</p></li>
+        <li><h5>Course: </h5>
+          <p><a @click.prevent="jumpToCourse(course.coursecode)">{{ course.title }} Level: {{ course.level }} (Code: {{ course.coursecode }})</a></p>
+        </li>
         <li v-if="student.documents">
                  <h5>Documents:</h5>
                  <ul class="tags">
@@ -73,21 +76,13 @@
 </template>
 
 <script>
-// import StudentStore from '@/data/studentstore.js'
-// import LogStore from '@/data/logstore.js'
-// import CourseStore from '@/data/coursestore.js'
+
 
 export default {
   name: 'student',
     data() {
         return {
           routeId: this.$route.params.id,
-          // allstudents: StudentStore.data.students,
-          // alllogs: LogStore.data.logs,
-          // allcourses: CourseStore.data.courses,
-          // student: '',
-          // logs: '',
-          // course: ''
         }
     },
 
@@ -113,7 +108,10 @@ export default {
         this.student = this.$store.getters.getstudent(this.routeId)
         this.course = this.$store.getters.coursebycode(this.student.coursecode)
         this.logs = this.$store.getters.logsbystudent(this.routeId)
-      }
+      },
+      jumpToCourse(place) {
+              this.$router.push({ name: 'course', params: {code: place} });
+          }
     },
 
 

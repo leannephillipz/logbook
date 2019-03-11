@@ -34,11 +34,10 @@
             <img :src="require('@/data/'+student.img.url)" :alt="student.img.alt" />
           </li>
           <li v-else><img :src="require('@/data/students/placeholder.jpg')" alt="no image" /></li>
-          <li>{{ student.fname }} {{ student.lname }}</li>
           <li v-for="(item, index) in crossRef(student.coursecode)" :key="index">{{ item.title }}<br>Level {{ item.level }}</li>
           <li>
             <!-- <button @click="jumpTo(student.uid)">Profile</button> -->
-            <router-link :to="{ name: 'student', params: { uid: student.uid }}">View Profile</router-link>
+            <router-link :to="{ name: 'student', params: { uid: student.uid }}">{{ student.fname }} {{ student.lname }}</router-link>
           <!-- <router-link :to="{ name: 'student', params: { uid: student.uid}, hash:'#logs'}">View logs</router-link> -->
           </li>
           </ul>
@@ -51,8 +50,8 @@
 
 <script>
 
-import StudentStore from '@/data/studentstore.js'
-import CourseStore from '@/data/coursestore.js'
+// import StudentStore from '@/data/studentstore.js'
+// import CourseStore from '@/data/coursestore.js'
 
 
 export default {
@@ -65,7 +64,7 @@ export default {
           searchtext1: '',
           searchtext2: '',
           // allstudents: StudentStore.data.students,
-          allcourses: CourseStore.data.courses,
+          // allcourses: CourseStore.data.courses,
           queryall: true,
           test: false
         }
@@ -74,9 +73,7 @@ export default {
 
     methods: {
       crossRef(code) {
-        // return this.allcourses
-        const allcourses = this.allcourses
-          return allcourses.filter(item => {
+          return this.courses.filter(item => {
                return item.coursecode.match(code);
              })
       },
@@ -86,12 +83,15 @@ export default {
     },
     computed: {
 
-        allstudents () {
-          return this.$store.getters.studentstore
-        },
+      students () {
+        return this.$store.getters.studentstore
+      },
+      courses () {
+        return this.$store.getters.coursestore
+      },
        filteredStudents() {
-          var allstudents = this.allstudents
-
+          // return this.students
+          var allstudents = this.students
           var filter1 = allstudents.filter(student => {
              return student.fname.toLowerCase().includes(this.searchtext1.toLowerCase())
            })
@@ -101,11 +101,11 @@ export default {
             })
 
             var filter3 = allstudents.filter(student => {
-               return student.documents.includes("EHCP")
+               return student.documents.includes("ehcp")
              })
 
             var filter4 = allstudents.filter(student => {
-               return student.documents.includes("Discosure")
+               return student.documents.includes("discosure")
           })
             if(this.ehcp == true) {
                return filter1 && filter2 && filter3

@@ -71,6 +71,14 @@ export const store = new Vuex.Store({
           return lookup.students.find(x => x === studentloglookup)
         })
       }
+    },
+    logsbycourse (state){
+      return (courseloglookup) => {
+        return state.logstore.filter((lookup) => {
+          return lookup.coursecode === courseloglookup
+          // return lookup.students.find(x => x === courseloglookup)
+        })
+      }
     }
     }
   })
