@@ -17,70 +17,84 @@ export const store = new Vuex.Store({
     //   id: '23489834'
     // }
   },
-  mutations: {},
-  actions: {},
   getters: {
-    studentstore (state){
-      return state.studentstore
-    },
-    getstudent (state){
+    // studentstore: state => {
+    //   return state.studentstore
+    // },
+    getstudent (lookup){
       return (studentlookup) => {
-        return state.studentstore.find((lookup) => {
-          return lookup.uid === studentlookup
+        return lookup.studentstore.find((item) => {
+          return item.uid === studentlookup
         })
       }
     },
-    studentsbycourse (state){
+    studentsbycourse (lookup){
       return (studentlookup) => {
-        return state.studentstore.filter((lookup) => {
-          return lookup.coursecode === studentlookup
+        return lookup.studentstore.filter((item) => {
+          return item.coursecode === studentlookup
         })
       }
     },
-    coursestore (state){
-      return state.coursestore
+    coursestore (lookup){
+      return lookup.coursestore
     },
-    coursebystudent (state){
+    coursebystudent (lookup){
       return (courselookup) => {
-        return state.coursestore.find((lookup) => {
-          return lookup.coursecode === courselookup
+        return lookup.coursestore.find((item) => {
+          return item.coursecode === courselookup
         })
       }
     },
-    coursebycode (state){
+    coursebycode (lookup){
       return (courselookup) => {
-        return state.coursestore.find((lookup) => {
-          return lookup.coursecode === courselookup
+        return lookup.coursestore.find((item) => {
+          return item.coursecode === courselookup
         })
       }
     },
-    logs (state){
-      return state.logstore
+    logs (lookup){
+      return lookup.logstore
     },
-    log (state){
+    log (lookup){
       return (loglookup) => {
-        return state.logstore.find((lookup) => {
-          return lookup.id === loglookup
+        return lookup.logstore.find((item) => {
+          return item.id === loglookup
         })
       }
     },
-    logsbystudent (state){
+    logsbystudent (lookup){
       return (studentloglookup) => {
-        return state.logstore.filter((lookup) => {
+        return lookup.logstore.filter((item) => {
           // return lookup.students === studentloglookup
-          return lookup.students.find(x => x === studentloglookup)
+          return item.students.find(x => x === studentloglookup)
         })
       }
     },
-    logsbycourse (state){
+    logsbycourse (lookup){
       return (courseloglookup) => {
-        return state.logstore.filter((lookup) => {
-          return lookup.coursecode === courseloglookup
+        return lookup.logstore.filter((item) => {
+          return item.coursecode === courseloglookup
           // return lookup.students.find(x => x === courseloglookup)
         })
       }
     }
+  },
+  mutations: {
+    addstudent (state, payload) {
+      state.studentstore.push(payload)
+    },
+    addlog (state, payload) {
+      state.logstore.push(payload)
     }
+  },
+  actions: {
+    addstudent: (context, payload) => {
+      setTimeout(function(){
+        context.commit('addstudent', payload)
+        //mutate state once this is done. this allows asynic 
+      }, 2000)
+    }
+  },
   })
 
 // export default new Vuex.Store({

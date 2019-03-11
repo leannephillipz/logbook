@@ -84,7 +84,7 @@ export default {
     computed: {
 
       students () {
-        return this.$store.getters.studentstore
+        return this.$store.state.studentstore
       },
       courses () {
         return this.$store.getters.coursestore

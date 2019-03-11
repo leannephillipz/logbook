@@ -59,7 +59,7 @@
     </div>
 </div>
   </div>
-    <button v-if="newlog.students.length" v-on:click.prevent="post" class="btn">Save new log</button>
+    <button v-if="newlog.students.length" v-on:click.prevent="postlog" class="btn">Save new log</button>
     </form>
 
     <div v-if="submitted">
@@ -121,6 +121,11 @@ export default {
       return this.newlog
   },
      methods: {
+       postlog: function(){
+         this.$store.commit('addlog', this.newlog )
+         this.newlog = null;
+         this.submitted = true;
+       },
        post: function(){
          LogStore.methods.addLog(this.newlog)
          this.newlog = null;

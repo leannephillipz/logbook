@@ -34,7 +34,7 @@ new Vue({
   render: h => h(App),
   data () {
     return {
-       authlogin: false, // auth
+       authlogin: true, // auth
        auth: [{
          status: false,
          txt: "false"
