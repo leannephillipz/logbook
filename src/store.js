@@ -1,12 +1,17 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
+import Firebase from 'firebase/app'
+import { db } from '@/firebase'
+import { getallstudents } from '@/firebase'
 
 import Allstudents from '@/data/students.json'
 import Allcourses from '@/data/courses.json'
 import Alllogs from '@/data/logs.json'
 
-
 Vue.use(Vuex)
+
+
+
 
 export const store = new Vuex.Store({
   state: {
@@ -18,9 +23,8 @@ export const store = new Vuex.Store({
     // }
   },
   getters: {
-    // studentstore: state => {
-    //   return state.studentstore
-    // },
+
+
     getstudent (lookup){
       return (studentlookup) => {
         return lookup.studentstore.find((item) => {
@@ -91,7 +95,7 @@ export const store = new Vuex.Store({
     addstudent: (context, payload) => {
       setTimeout(function(){
         context.commit('addstudent', payload)
-        //mutate state once this is done. this allows asynic 
+        //mutate state once this is done. this allows asynic
       }, 2000)
     }
   },
@@ -99,12 +103,9 @@ export const store = new Vuex.Store({
 
 // export default new Vuex.Store({
 //   state: {
-//
 //   },
 //   mutations: {
-//
 //   },
 //   actions: {
-//
 //   }
 // })

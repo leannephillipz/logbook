@@ -7,14 +7,16 @@ import Moment from 'moment'
 import VueMoment from 'vue-moment'
 import Vuex from 'vuex'
 import { store } from './store.js'
-
-Vue.use(Vuex)
+import Firebase from 'firebase/app'
 
 Vue.use(Resources)
 Vue.use(Router)
 Vue.use(Moment)
 Vue.use(VueMoment)
+Vue.use(Vuex)
+Vue.use(Firebase)
 
+Vue.config.productionTip = false
 
 Vue.filter('snippet', val => {
   if(!val || typeof(val) != 'string'){
@@ -28,7 +30,7 @@ Vue.filter('snippet', val => {
 
 
 
-new Vue({
+const app = new Vue({
   router: Router,
   store,
   render: h => h(App),
@@ -40,5 +42,7 @@ new Vue({
          txt: "false"
        }]
     }
-  }
+  },
+  created(){
+},
 }).$mount('#app')
