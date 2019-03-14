@@ -11,8 +11,6 @@ import Alllogs from '@/data/logs.json'
 Vue.use(Vuex)
 
 
-
-
 export const store = new Vuex.Store({
   state: {
     studentstore: Allstudents,
@@ -23,7 +21,6 @@ export const store = new Vuex.Store({
     // }
   },
   getters: {
-
 
     getstudent (lookup){
       return (studentlookup) => {
@@ -92,6 +89,7 @@ export const store = new Vuex.Store({
     }
   },
   actions: {
+
     addstudent: (context, payload) => {
       setTimeout(function(){
         context.commit('addstudent', payload)
@@ -100,6 +98,8 @@ export const store = new Vuex.Store({
     }
   },
   })
+
+
 
 // export default new Vuex.Store({
 //   state: {

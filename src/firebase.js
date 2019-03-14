@@ -1,5 +1,6 @@
 import firebase from 'firebase/app'
 import firestore from 'firebase/firestore'
+import vuex from 'vuex'
 
 var config = {
   apiKey: "AIzaSyCa2qBGIJzhc9V640bzwqXQfO7dGObv01U",
@@ -13,15 +14,11 @@ var config = {
 const firebaseApp = firebase.initializeApp(config);
 // firebaseApp.firestore().settings( { timestampsInSnapshots: true }) now default
 
-var getallstudents
 
-function outputstudents(doc) {
-  var getallstudents = doc.data()
-  console.log(getallstudents)
-}
+
 
 var db = firebaseApp.firestore()
-db.collection("students")
+var getallstudents = db.collection("students")
       .get()
       .then
       //success
@@ -31,7 +28,10 @@ db.collection("students")
               // console.log(doc.id, " : ", doc.data());
               // var allstudents = doc.data()
               // console.log(allstudents)
-              outputstudents(doc)
+              var getallstudents = doc.data()
+              var getallstudents = JSON.stringify(getallstudents)
+              console.log(getallstudents)
+
           })
       })
       .catch
@@ -46,4 +46,4 @@ db.collection("students")
       // https://github.com/vuejs/vuefire/tree/master/packages/vuexfire
 
 
-export default {db, getallstudents}
+export {db, getallstudents}
