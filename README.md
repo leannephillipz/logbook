@@ -2,6 +2,11 @@
 
 A prototype student logbook for learning support in schools and colleges using vue.js
 
+## Get Project
+
+git clone https://github.com/BrightdayStudio/logbook.git
+cd logbook
+
 ## Project setup
 ```
 npm install
