@@ -1,6 +1,6 @@
 <template>
   <main class="logbooks">
-    <h2 class="pagetitle">Logbooks</h2>
+    <h2 class="pagetitle">Courses</h2>
 
 
 <div class="group">
@@ -11,39 +11,39 @@
   <label>Campus:
       <select v-model="search.campus">
         <option selected value="">All</option>
-        <option v-for="(camp, index) in campus" :key="index" v-bind:value="camp.value">{{ camp.name }}</option>
+        <option v-for="camp in campus" v-bind:key="camp.index" v-bind:value="camp.value">{{ camp.name }}</option>
       </select>
   </label>
+
+
 </div>
+
 
 
         <ul class="list">
           <li>
             <ul class="flex colhead">
               <li class="sm">Level</li>
-              <li class="">Title</li>
+              <li class="">Course</li>
               <li class="">Qualification</li>
               <li class="">Industry<!-- / Discipline / Department--></li>
               <li>Campus</li>
-              <!-- <li class="sm"></li> -->
+              <li class="sm"></li>
           </ul>
         </li>
-            <li v-for="(course, index) in getcourse" :key="index" class="details">
-              <ul class="flex"  >
-                <li class="sm"><span class="mobile">Level: </span> {{ course.level }}</li>
-                  <li class="" @click="jumpToCourse(course.coursecode)">
-                    <!-- {{ course.title }} -->
-
-                  <button @click="jumpTo(course.coursecode)">{{ course.title }}</button>
-
-                </li>
-                  <li >{{ course.qualification }}</li>
-                  <li >{{ course.discipline }}</li>
-                  <li >{{ course.campus }}</li>
-                  <!-- <li class="sm">
-                      <button @click="jumpTo(course.coursecode)" v-if="course.logs === true">Logs</button>
+            <li v-for="course in getcourse" v-bind:key="course.index">
+              <ul class="flex">
+                <li class="sm">{{ course.level }}</li>
+                  <li class=""><router-link :to="{ name: 'course', params: { code: course.code  }}">{{ course.title }}</router-link> </li>
+                  <li>{{ course.qualification }}</li>
+                  <li class="">{{ course.discipline }}</li>
+                  <li>{{ course.campus }}</li>
+                  <li class="sm">
+                    <p v-if="course.logs === true">
+                    <router-link :to="{ name: 'logs', params: { code: course.code  }}">View logs</router-link>
+                  </p>
                   <p v-else>-</p>
-                </li> -->
+                </li>
                   </ul>
           </li>
         </ul>
@@ -53,51 +53,40 @@
 </template>
 
 <script>
-// import CourseStore from '@/data/coursestore.js'
+import CourseStore from '@/data/coursestore.js'
 
 export default {
   name: 'courses',
   data() {
     return {
-        // courses: CourseStore.data.courses,
+        courses: CourseStore.data.courses,
         campus: [
           {"name": "Brighton", "value": "Brighton"},
           {"name": "Shoreham", "value": "Shoreham"},
           {"name": "West Durrington Worthing", "value": "Durrington"},
           {"name": "Broadwater Worthing", "value": "Broadwater"}
         ],
-        split: 10,
+        split: 20,
         search: {
           campus: '',
           title: ''
         }
       }
   },
-  methods: {
-    jumpToLog(place) {
-            this.$router.push({ name: 'logs', params: { code: place} })
-        },
-    jumpToCourse(place) {
-            this.$router.push({ name: 'course', params: {code: place} });
-        }
-  },
   computed: {
-    courses () {
-      return this.$store.getters.coursestore
-    },
       getcourse: function(){
           const v = this
           const courses = v.courses
 
-          return v.courses
+          v.courses
           .filter(item => {
-            return item.campus.toLowerCase().includes(v.search.campus.toLowerCase())
+             item.campus.toLowerCase().includes(v.search.campus.toLowerCase())
              })
              .filter(item => {
-               return item.title.toLowerCase().includes(v.search.title.toLowerCase())
+                item.title.toLowerCase().includes(v.search.title.toLowerCase())
                 })
 
-          return courses.slice(0, v.split) //only show 10
+          return courses.slice(0, v.split)
 
       }
   }

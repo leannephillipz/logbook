@@ -3,40 +3,41 @@
   <h2 class="pagetitle">Students</h2>
 
 
-<!--  <div class="filters">
+  <div class="filters">
     <label>
-  <input type="text" value="" placeholder="First name (e.g. John) or last name (e.g. Jones)" v-model="searchtext"/>
-</label>
+  <input type="text" value="" placeholder="First name (e.g. John) or last name (e.g. Jones)" v-model="searchtext"/></label>
   <div class="opts">
   <label><input type="checkbox" value="ehcp" v-model="ehcp">With EHCP</label>
   <label><input type="checkbox" value="discosure" v-model="discosure">With student disclosure</label>
   </div>
-</div>-->
+</div>
 
-  <!--  <li>
-       <ul class="flex colhead">
+<!-- <span>Selected: {{ selectedcourse }}</span> -->
+  <ul class="list">
+    <li>
+      <ul class="flex colhead">
         <li></li>
       <li>Name</li>
       <li>Course (primary)</li>
       <li>Age</li>
       <li></li>
       </ul>
-    </li>-->
-        <ul class="flex data">
-          <li v-for="student in orderedStudents" :key="student.index">
-            <router-link :to="{ name: 'student', params: { uid: student.uid  }}">
-
-          <img  v-if="student.img" :src="require('@/data/'+student.img.url)" :alt="student.img.alt" class="img"/>
-          <img v-else :src="require('@/data/students/placeholder.jpg')" alt="no image" />
-
-        <p class="txt">
-          {{ student.fname }} {{ student.lname }} <br>
-          View</p>
-        </router-link>
-
-  </li>
-      </ul>
-
+    </li>
+      <li v-for="(student, index) in filteredStudents" v-bind:key="index">
+          <ul class="flex">
+          <li class="img" v-if="student.img">
+            <img :src="require('@/data/'+student.img.url)" :alt="student.img.alt" />
+          </li>
+          <li v-else><img :src="require('@/data/students/placeholder.jpg')" alt="no image" /></li>
+          <li>{{ student.fname }} {{ student.lname }}</li>
+          <li v-for="item in crossRef(student.coursecode)" v-bind:key="index">{{ item.title }}<br>Level {{ item.level }}</li>
+          <!-- <li>{{ student.dob | moment("from", "now", true) }} old</li> -->
+          <li>
+          <router-link :to="{ name: 'student', params: { uid: student.uid  }}">View</router-link>
+          </li>
+          </ul>
+      </li>
+  </ul>
 
 </main>
 </template>
@@ -45,20 +46,21 @@
 <script>
 
 import StudentStore from '@/data/studentstore.js'
-// import CourseStore from '@/data/coursestore.js'
+import CourseStore from '@/data/coursestore.js'
 
 
 export default {
   name: 'students',
     data () {
         return {
-          // ehcp: false,
-          // discosure: false,
-          // searchtext: '',
+          selectedcourse: 'All',
+          ehcp: false,
+          discosure: false,
+          searchtext: '',
           students: StudentStore.data.students,
-          // allcourses: CourseStore.data.courses,
-          // queryall: true,
-          // test: false
+          allcourses: CourseStore.data.courses,
+          queryall: true,
+          test: false
         }
     },
 
@@ -76,32 +78,20 @@ export default {
     // },
 
     methods: {
-      // crossRef(code) {
-      //   // return this.allcourses
-      //     return this.allcourses.filter(item => {
-      //          return item.code.match(code);
-      //        })
-      // }
-
-
+      crossRef(code) {
+        // return this.allcourses
+          return this.allcourses.filter(item => {
+               return item.code.match(code);
+             })
+      }
     },
     computed: {
 
-      // orderedStudents: function () {
-      //   return this.students.slice(0, 3) // works
-      // }
-
-
-
-      orderedStudents: function () {
-         return this.students
-  }
-
-        /*filteredStudents() {
+       filteredStudents() {
          //return this.students
           const v = this
-           const allstudents = v.students
-          // const allcourses = v.allcourses
+          const allstudents = v.students
+          const allcourses = v.allcourses
 
           // for allstudents.push("fullname": fname = lname)
 
@@ -132,7 +122,7 @@ export default {
                return filter1 && filter2
             }
 
-      } */
+      }
 }
 }
 

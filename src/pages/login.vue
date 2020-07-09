@@ -31,13 +31,14 @@ export default {
     }
   },
   methods: {
-
     login(e) {
       e.preventDefault()
 
     if (this.username == "admin" && this.password == "enter") {
+
       this.$root.authlogin = true
-      this.$router.push({ name: 'home'})
+      this.feedback = "Correct"
+      return this.$router.push({ name: 'home'})
     } else {
       this.feedback = "Sorry, this login data is invalid, try again."
     }
@@ -52,8 +53,9 @@ export default {
       // return this.$emit({'authlogin': true})
       // return this.$parent.authlogin = true
     }
-  },
-  computed: {}
+      }
+
 }
+
 
 </script>

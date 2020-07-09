@@ -1,28 +1,26 @@
 <template>
-<main class="newlog addnew">
+<main class="newlog">
 <h2 class="pagetitle">Add a New Log</h2>
 <form v-if="!submitted">
 
 <!-- <p>New id:{{newlog.id}} </p> -->
 
-  <div class="group">
+  <fieldset class="group">
   <label class="date">Date:
   <input type="date" :value="newlog.datestamp" />
   </label>
   <label class="time">Duration:
   <input type="number" :value="newlog.duration" />
   </label>
-</div>
+  </fieldset>
 
 
     <fieldset class="group autocomplete">
     <div>
-      <label class='course'>Course:
+      <label class='course'>
         <input type="text" v-model="searchFilter" />
         <ul class="dropdown" v-if="searchFilter.length > 1 && show == true">
-          <li v-for="(course, index) in courses()" :key="index" v-on:click="getdata(course.title, course.coursecode, course.students)">
-            {{ course.title }}
-          </li>
+          <li v-for="course in courses()" v-bind:key="course.index" v-on:click="getdata(course.title, course.code, course.students)">{{ course.title }}</li>
         </ul>
         </label>
     </div>
@@ -33,22 +31,23 @@
 
     </fieldset>
 
-  <fieldset class="opts" v-if="validcourse == true">
-      <p>Select student(s):</p>
-    <div v-for="(person, index) in suggeststudents" :key="index">
-      <label>
-          <input type="checkbox" :value="person.uid" v-model="newlog.students" >
-          {{ person.fname }} {{ person.lname }}
-        </label>
+  <fieldset class="group" v-if="validcourse == true">
+    <div v-if="suggeststudents.length" class="sopts">
+    <p>Select student(s):</p>
+      <ul v-for="p in findcoursestudents()" v-bind:key="p.index">
+        <li><label>
+          <input type="checkbox" :value="p.uid" v-model="newlog.students" >
+          {{ p.fname }} {{ p.lname }}</label>
+      </li>
+      </ul>
     </div>
   </fieldset>
 
 
-  <div class="data" v-if="newlog.students.length">
+  <div class="log flex" v-if="newlog.students.length">
     <label>Log:
     <textarea placeholder="This is what happened today..." rows="7" v-model="newlog.content"/>
     </label>
-    <div>
     <div>
     <textarea placeholder="Strategies used..." rows="7" v-model="newlog.strategies"/>
     <textarea placeholder="Points to consider..." rows="7" v-model="newlog.consideration"/>
@@ -57,9 +56,9 @@
         <textarea placeholder="Progress made during session..." rows="7" v-model="newlog.progress"/>
         <textarea placeholder="Targets for next time..." rows="7" v-model="newlog.targets"/>
     </div>
-</div>
+
   </div>
-    <button v-if="newlog.students.length" v-on:click.prevent="postlog" class="btn">Save new log</button>
+    <button v-if="newlog.students.length" v-on:click.prevent="post" class="btn">Save new log</button>
     </form>
 
     <div v-if="submitted">
@@ -115,42 +114,36 @@ export default {
     // computed is odd doesn't work with this...
       this.newlog.id = this.logs.length ++
       // var d = this.$moment(Date.now()).format('YYYY-MM-DD')
-      this.newlog.timestamp = this.$moment().format() //(ISO 8601, no fractional seconds)
-      this.newlog.datestamp = this.$moment(Date.now()).format('YYYY-MM-DD')
+      // this.newlog.timestamp = this.$moment().format() //(ISO 8601, no fractional seconds)
+      // this.newlog.datestamp = this.$moment(Date.now()).format('YYYY-MM-DD')
       this.newlog.duration = 0
       return this.newlog
   },
      methods: {
-       postlog: function(){
-         this.$store.commit('addlog', this.newlog )
-         this.newlog = null;
-         this.submitted = true;
-       },
        post: function(){
          LogStore.methods.addLog(this.newlog)
          this.newlog = null;
          this.submitted = true;
        },
       getdata: function (title, code, students) {
+        // this.seen = true
         this.newlog.title = title
         this.searchFilter = title
         this.newlog.coursecode = code
+        this.suggeststudents = students
         this.validcourse = true
         this.show = false
-
-        let getstudents = this.allstudents.filter(item => {
-            return item.coursecode.toLowerCase().includes(this.newlog.coursecode.toLowerCase())
-          })
-          this.suggeststudents = getstudents
-
     },
 
-    //   findcoursestudents: function(){
-    //     let students = this.allstudents.filter(item => {
-    //         return item.coursecode.toLowerCase().includes(this.newlog.coursecode.toLowerCase())
-    //       })
-    //       return students
-    // },
+      findcoursestudents: function(){
+        if (this.validcourse && this.newlog.title){
+        let students = this.allstudents.filter(item => {
+            return item.coursecode.toLowerCase().includes(this.newlog.coursecode.toLowerCase())
+          })
+          return students
+          // this.suggeststudents = students
+        }
+    },
     courses(){
           if (this.searchFilter.length > 1){
             let courses = this.allcourses.filter(item => {
@@ -167,18 +160,26 @@ export default {
   },
 
   watch: {
+    // validcourse: function (newdata, olddata) {
+    //   console.log("hello")
+    // },
+    // searchFilter: function (newdata, olddata) {
+    //   if (!newdata){
+    //     console.log("no data")
+    //     this.newlog.coursecode = "",
+    //     this.newlog.title = "",
+    //     this.newlog.students = [],
+    //     this.validcourse = false
+    //     this.show = true
+    //   }
+    // },
 
-    searchFilter: function (newdata, olddata) {
-      if (!newdata){
-        // console.log(olddata)
-        this.newlog.coursecode = "",
-        this.newlog.title = "",
-        this.newlog.students = [],
-        this.validcourse = false
-        this.show = true
-      }
-    },
 
+
+
+    // suggeststudents(){
+    //   return findcoursestudents()
+    // }
 }
 
 }
@@ -187,4 +188,5 @@ export default {
 </script>
 
 <style scoped>
+section {padding-top:3em;}
 </style>

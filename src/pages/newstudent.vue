@@ -1,5 +1,5 @@
 <template>
-<main class="newstudent addnew">
+<main class="newstudent">
   <h2 class="pagetitle">Add a New Student</h2>
 
   <form v-if="!submitted">
@@ -26,7 +26,7 @@
       <input type="text" v-model.lazy="student.coursecode" /></label>
       <label>Email
       <input type="text" v-model.lazy="student.email" /></label>
-      <button v-on:click.prevent="poststudent" class="btn">Add Student</button>
+      <button v-on:click.prevent="post" class="btn">Add Student</button>
   </form>
   <div v-if="submitted">
       <p>Thanks for adding a student</p>
@@ -50,23 +50,28 @@ export default {
                 uid: '',
                 dob:'',
                 email: '',
-                course: '',
-                coursecode: '',
                 documents: [],
             },
             submitted: false
         }
     },
     methods: {
-      poststudent: function(){
-        // this.$store.commit('addstudent', this.student )
-        this.$store.dispatch('addstudent', this.student )
-        this.student = null;
-        this.submitted = true;
-      }
+        post: function(){
+          StudentStore.methods.addStudent(this.student)
+          this.student = null;
+          this.submitted = true;
+            // this.$http.post(link, this.student).then(function(data){
+            //     console.log(data);
+            //     this.submitted = true;
+            // })
+        }
     },
     computed: {
-
+      // date(){
+      //   let newdate = this.$moment().format("YYYY-MM-DD")
+      //   this.student.dob = newdate
+      //   return newdate
+      // }
 
     }
 }

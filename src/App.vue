@@ -40,7 +40,7 @@ export default {
 </script>
 
 <style>
-@import './style/reset.css';
+@import './style/normalise.css';
 @import './style/flex.css';
 @import './style/base.css';
 @import './style/theme.css';

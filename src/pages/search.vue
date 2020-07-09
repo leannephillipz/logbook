@@ -35,7 +35,7 @@
 -->
 </form>
 {{ documents }}
-<div v-for="i in queryResults(items)" class="item">
+<div v-for="i in queryResults(items)" v-bind:key="index" class="item">
     {{i.fname}}
     {{i.lname}}
     {{i.course}}

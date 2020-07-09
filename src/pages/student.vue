@@ -1,126 +1,99 @@
 <template>
 <main class="student">
-  <div class="flex split">
-  <div class="content">
-       <h2 class="pagetitle">Student</h2>
-       <h3>{{student.fname}} {{student.lname}}</h3>
-       <ul class="details">
-        <li><h5>ID: </h5><p>{{student.uid}}</p></li>
-        <li><h5>Email:</h5> <p><a v-bind:href=" 'mailto:' + student.email">{{student.email}}</a></p></li>
-        <li><h5>Date of birth: </h5><p>{{ student.dob }}</p></li>
-        <li><h5>Age: </h5><p>{{ student.dob | moment("from", "now", true) }} old</p></li>
-        <li><h5>Course: </h5>
-          <p><a @click.prevent="jumpToCourse(course.coursecode)">{{ course.title }} Level: {{ course.level }} (Code: {{ course.coursecode }})</a></p>
-        </li>
-        <li v-if="student.documents">
-                 <h5>Documents:</h5>
-                 <ul class="tags">
-                 <li v-for="(doc, index) in student.documents" :key="index">
-                   {{ doc }}
-                 </li>
-          </ul>
-        </li>
-        <li v-if="student.flags">
-         <h5>Flags:</h5>
-         <ul v-if="student.flags" class="tags">
-         <li v-for="(flag, index) in student.flags" :key="index">
-           {{ flag }}
-         </li>
-       </ul>
+<div class="flex profilepage">
+<div class="content">
+     <h2 class="pagetitle">Student</h2>
+     <p>{{student.fname}} {{student.lname}}<span> (ID: {{student.uid}})</span></p>
+     <h5>Course:</h5>
+     <p>{{student.course}}<span> (Code: {{student.coursecode}})</span></p>
+     <h5>Flags:</h5>
+     <ul v-if="student.flags" >
+     <li v-for="flag in student.flags" v-bind:key="flag.index">
+       {{ flag }}
+     </li>
+   </ul>
+   <h5>Exam Support requirements:</h5>
+   <ul v-if="student.examsupport" >
+   <li v-for="item in student.examsupport" v-bind:key="item.index">
+     {{ item }}
    </li>
-   <li v-if="student.examsupport">
-       <h5>Exam Support:</h5>
-       <ul class="tags">
-       <li v-for="(item, index) in student.examsupport" :key="index">
-         {{ item }}
-       </li>
-     </ul>
- </li>
- <li v-if="student.notes" >
-          <h5>Extra Notes:</h5>
-          <ul >
-          <li v-for="(note, index) in student.notes" :key="index">
-            {{ note.note }}
-          </li>
-        </ul>
- </li>
-</ul>
+ </ul>
 
+     <h5>Documents:</h5>
+     <ul v-if="student.documents" >
+     <li v-for="document in student.documents" v-bind:key="document.index">
+       {{ document }}
+     </li>
+   </ul>
+   <h5>Extra Notes:</h5>
+   <ul v-if="student.notes" >
+   <li v-for="note in student.notes" v-bind:key="note.index">
+     {{ note.note }}
+   </li>
+ </ul>
+<hr class="spacer">
+     <h5>Logs:</h5>
 
-
-
-
-
-
-
-
-
-  <div v-if="logs" class="logs">
-    <hr class="spacer"/>
-       <h5 id="logs">Logs:</h5>
-         <ul class="cards" v-for="(log, index) in logs" :key="index">
-           <li>
-             <p>{{ log.content | snippet }} <router-link :to="{ name: 'log', params: { id: log.id  }}">Read more...</router-link></p>
-             <p>{{ log.datestamp | moment("DD/MM/YYYY")}}</p>
-         </li>
+       <ul class="list " v-for="log in getlogs" v-bind:key="log.index">
+         <li>
+         <ul class="flex">
+           <!-- <li class="sm">{{ log.datestamp | moment("DD/MM/YYYY") }}</li> -->
+           <li>{{ log.course }} </li>
+           <!-- <li>Add qualification and level</li> -->
+           <li>By: {{ log.author.fname }} {{ log.author.lname }}</li>
+           <li class="sm"><router-link :to="{ name: 'log', params: { id: log.id  }}">Read</router-link></li>
          </ul>
-         </div>
+       </li>
+       </ul>
 
-       </div>
+     </div>
 
-       <div class="profile side">
-       <img :src="require('@/data/'+student.img.url)" :alt="student.img.alt"/>
-       </div>
-       </div>
+     <div>
+       <img  v-if="student.img" :src="require('@/data/'+student.img.url)" :alt="student.img.alt" class="img"/>
+       <img v-else :src="require('@/data/students/placeholder.jpg')" alt="no image" />
+
+     </div>
+     </div>
 </main>
 </template>
 
 <script>
-
+import StudentStore from '@/data/studentstore.js'
+import LogStore from '@/data/logstore.js'
 
 export default {
   name: 'student',
     data() {
         return {
-          routeId: this.$route.params.id,
+          routeId: this.$route.params.uid,
+          students: StudentStore.data.students,
+          logs: LogStore.data.logs,
+          student: '',
+          imgurl: '',
+          studentlogs: ''
         }
     },
-
     created(){
-          this.routeId = this.$route.params.uid
+          this.updatedata()
         },
-
     computed: {
-      student () {
-        return this.$store.getters.getstudent(this.routeId)
-      },
-      logs (){
-        return this.$store.getters.logsbystudent(this.routeId)
-      },
-      course (){
-        return this.$store.getters.coursebystudent(this.student.coursecode)
+      getlogs: function(){
+         const v = this
+         const logs = v.logs
+         return logs
       }
     },
-
     methods: {
       updatedata: function(){
         this.routeId = this.$route.params.uid
-        this.student = this.$store.getters.getstudent(this.routeId)
-        this.course = this.$store.getters.coursebycode(this.student.coursecode)
-        this.logs = this.$store.getters.logsbystudent(this.routeId)
-      },
-      jumpToCourse(place) {
-              this.$router.push({ name: 'course', params: {code: place} });
-          }
+        this.student = this.students.find(x => x.uid === this.routeId);
+      }
     },
-
-
-    watch: {
-      $route () {
-        this.updatedata()
-    }
-
-    }
+    // watch: {
+    //   $route (to, from) {
+    //     this.updatedata()
+    // }
+    // }
 
 }
 
@@ -128,5 +101,5 @@ export default {
 
 <style scoped>
 
-
+img {min-height:50px;width:100%;}
 </style>

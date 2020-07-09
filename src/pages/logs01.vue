@@ -4,7 +4,7 @@
     <h2 class="pagetitle">Logs</h2>
 
     <ul class="list">
-      <!-- <li>
+      <li>
         <ul class="flex colhead">
           <li>Date</li>
           <li>Student(s)</li>
@@ -12,7 +12,7 @@
           <li>Log</li>
           <li></li>
       </ul>
-    </li> -->
+    </li>
         <li v-for="log in getlogs" v-bind:key="log.index">
           <ul class="flex">
               <!-- <li>{{ log.datestamp | moment("DD/MM/YYYY")}}</li> -->
@@ -44,14 +44,14 @@ export default {
   },
   computed: {
     getlogs: function(){
-        // const v = this
-        // const logs = v.logs
+        const v = this
+        const logs = v.logs
 
-       // return logs.filter(log => {
-       //    return log.coursecode.toLowerCase().includes(this.routeId.toLowerCase())
-       //     })
+       return logs.filter(log => {
+          return log.coursecode.toLowerCase().includes(this.routeId.toLowerCase())
+           })
 
-        return this.logs
+        return this.logs.slice(0, v.split);
         // return this.logs
     }
   }

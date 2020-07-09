@@ -9,7 +9,7 @@
           <li></li>
       </ul>
     </li>
-        <li v-for="log in getlogs">
+        <li v-for="log in getlogs" v-bind:key="index">
           <ul class="flex">
               <li>{{ log.datestamp }}</li>
               <li>{{ log.course }} <br>Student: {{log.student.fname}} {{log.student.lname}}

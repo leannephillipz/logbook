@@ -4,44 +4,32 @@ import Home from './pages/home.vue'
 import About from './pages/about.vue'
 import Courses from './pages/courses.vue'
 import Log from './pages/log.vue'
-// import Logs from './pages/logs.vue'
+import Logs from './pages/logs.vue'
 import Students from './pages/students.vue'
 import Student from './pages/student.vue'
 import Login from './pages/login.vue'
 import Newlog from './pages/newlog.vue'
-import Search from './pages/search.vue'
+// import Search from './pages/search.vue'
 import Course from './pages/course.vue'
 import Newstudent from './pages/newstudent.vue'
-import Error404 from './pages/404.vue'
 
 Vue.use(VueRouter)
 
 const router = new VueRouter({
    // mode: 'history', // removed the hash - must set up server to do this
-   scrollBehavior: function(to, from, savedPosition) {
-    if (to.hash) {
-      return {selector: to.hash}
-    } else {
-      return {x: 0, y: 0}
-    }
-  },
   // //base: '/projects/logbook/' //production
   // //base: __dirname,
   // base: process.env.BASE_URL,
   routes: [
-    // { path: '/',
-    //   redirect: function() {
-    //     const auth = this.$root.$data.authlogin
-    //     if (auth) {
-    //       return { path: '/home' }
-    //     } else {
-    //       return { path: '/login' }
-    //     }
-    //   }
-    // },
-    {
-      path: '/',
-      redirect: '/login'
+    { path: '/',
+      redirect: to => {
+        const { authlogin } = to
+        if (authlogin) {
+          return { path: '/home' }
+        } else {
+          return { path: '/login' }
+        }
+      }
     },
     {
       path: '/login',
@@ -67,12 +55,12 @@ const router = new VueRouter({
       component: Courses,
       meta: { requiresAuth: true }
     },
-    // {
-    //   path: '/logs/:code',
-    //   name: 'logs',
-    //   component: Logs,
-    //   meta: { requiresAuth: true }
-    // },
+    {
+      path: '/logs/:code',
+      name: 'logs',
+      component: Logs,
+      meta: { requiresAuth: true }
+    },
     {
       path: '/log/:id',
       name: 'log',
@@ -97,12 +85,12 @@ const router = new VueRouter({
       component: Student,
       meta: { requiresAuth: true }
     },
-    {
-      path: '/search',
-      name: 'search',
-      component: Search,
-      meta: { requiresAuth: true }
-    },
+    // {
+    //   path: '/search',
+    //   name: 'search',
+    //   component: Search,
+    //   meta: { requiresAuth: true }
+    // },
     {
       path: '/course/:code',
       name: 'course',
@@ -115,36 +103,23 @@ const router = new VueRouter({
       name: 'newstudent',
       component: Newstudent,
       meta: { requiresAuth: true }
-    },
-    {
-      path: '/404',
-      name: '404',
-      component: Error404
-    },
-    {
-      path: '*',
-      redirect: '/404'
     }
   ],
   methods: {},
-//   scrollBehavior (to, from, savedPosition) {
-//   return { x: 0, y: 0 }
-// }
 
 })
 
 // router.beforeEach((to, from, next) => {
 //   if (to.matched.some(record => record.meta.requiresAuth)) {
-//     // console.log(router.app.$root)
-//      console.log(router.app.$root.$data.authlogin)
-//     const auth = router.app.$root.$data.authlogin
-//     if (auth == true) {
-//       console.log(to);
-//       next()
-//     } else if (auth == false){
-//       console.log("requiresAuth");
-//       next({ name: 'login' })
-//     }
+//     console.log(router.app.$root)
+//     // const auth = router.app.$data
+//     // if (auth.authlogin == true) {
+//     //   console.log(to);
+//     //   next()
+//     // } else if (auth == false){
+//     //   console.log("requiresAuth");
+//     //   next({ name: 'login' })
+//     // }
 //   }
 //   next() // make sure to always call next()!
 // })

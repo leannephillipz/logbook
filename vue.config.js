@@ -1,5 +1,5 @@
 module.exports = {
-  publicPath: '/projects/logbook/',
+  publicPath: '/projects/logbook/demo/',
   assetsDir: 'assets',
   css: {
     sourceMap: true

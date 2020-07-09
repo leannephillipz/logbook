@@ -2,9 +2,10 @@
 <section>
      <h3>Recent Logs</h3>
       <ul>
-          <li v-for="log in getlogs">
+          <li v-for="log in getlogs" v-bind:key="log.index">
             <ul class="item">
-                <li>{{ log.datestamp | moment("DD / MM / YYYY")}}
+                 <li>
+                   <!--{{ log.datestamp | moment("DD / MM / YYYY")}} -->
                 <br> {{ log.course }} <br>Student: {{log.student.fname}} {{log.student.lname}}
               <br>With: {{log.author.fname}} {{log.author.lname}}</li>
                 <li>{{ log.content.substring(0,255)+"..." }}</li>

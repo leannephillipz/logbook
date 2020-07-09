@@ -1,8 +1,8 @@
 <template >
 <section class="topbar">
 <ul>
-<!-- <li ><img src="@/assets/icons/info.png" class="mobilehide"> <span class="mobilehide">{{notify.length}}</span></li> -->
-<li ><button @click="toggellogin">Logout</button></li>
+<li>Total notifications: {{notify.length}}</li>
+<!-- <li >|  <a v-on:click="toggellogin">{{ thislogintxt }}</a></li> -->
 <!-- <li>
   <div class="profile">
   </div></li> -->
@@ -13,7 +13,7 @@
 
 <script>
 
-import NotifyStore from '@/data/NotifyStore.js';
+import NotifyStore from '@/stores/NotifyStore.js';
 
 export default {
     name: 'topbar',
@@ -26,23 +26,21 @@ export default {
       data: function() {
         return {
           hidden: !this.visible,
-          notify: NotifyStore.data.notes
+          notify: NotifyStore.data.notes,
+          // logintxt: "hello"
         }
       },
       methods: {
-        toggellogin: function () {
-          //this.$root.authlogin = true
-          this.$router.push({ path: 'login' })
-          this.$root.authlogin = false
-          // if (this.$root.authlogin) {
-          //   return this.logintxt = "Logout"
-          //    return this.$root.authlogin = false
-          //  } else {
-          //    return this.$root.authlogin = true
-          //    return this.logintxt = "Login"
-          //  }
-
-        }
+        // toggellogin: function () {
+        //   //this.$root.authlogin = true
+        //   if (this.$root.authlogin) {
+        //      return this.$root.authlogin = false
+        //      router.push({ path: 'login' })
+        //    } else {
+        //      return this.$root.authlogin = true
+        //    }
+        //
+        // }
       },
       computed: {
         // thislogintxt: function () {
