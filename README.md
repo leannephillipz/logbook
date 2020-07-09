@@ -2,6 +2,10 @@
 
 A prototype student logbook for learning support in schools and colleges using vue.js
 
+
+Todo: look up https://webpack.js.org/guides/code-splitting/
+
+
 ## Get Project
 
 git clone https://github.com/BrightdayStudio/logbook.git
