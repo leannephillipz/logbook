@@ -10,7 +10,7 @@
 
   <label>Campus:
       <select v-model="search.campus">
-        <option selected value="">All</option>
+        <option selected value="All">All</option>
         <option v-for="camp in campus" v-bind:key="camp.index" v-bind:value="camp.value">{{ camp.name }}</option>
       </select>
   </label>
@@ -34,7 +34,7 @@
             <li v-for="course in getcourse" v-bind:key="course.index">
               <ul class="flex">
                 <li class="sm">{{ course.level }}</li>
-                  <li class=""><router-link :to="{ name: 'course', params: { code: course.code  }}">{{ course.title }}</router-link> </li>
+                  <li class=""><router-link :to="{ name: 'course', params: { code: course.code  }}">{{ course.title}}</router-link> </li>
                   <li>{{ course.qualification }}</li>
                   <li class="">{{ course.discipline }}</li>
                   <li>{{ course.campus }}</li>
@@ -63,31 +63,27 @@ export default {
         campus: [
           {"name": "Brighton", "value": "Brighton"},
           {"name": "Shoreham", "value": "Shoreham"},
-          {"name": "West Durrington Worthing", "value": "Durrington"},
-          {"name": "Broadwater Worthing", "value": "Broadwater"}
+          {"name": "West Durrington (Worthing)", "value": "Durrington"},
+          {"name": "Broadwater (Worthing)", "value": "Broadwater"}
         ],
-        split: 20,
+        split: 20, // max amount to show
         search: {
-          campus: '',
+          campus: 'All',
           title: ''
         }
       }
   },
   computed: {
       getcourse: function(){
-          const v = this
-          const courses = v.courses
+        // returns a new array not orriginal data
+           // return this.courses.slice(0, this.split)
 
-          v.courses
-          .filter(item => {
-             item.campus.toLowerCase().includes(v.search.campus.toLowerCase())
-             })
-             .filter(item => {
-                item.title.toLowerCase().includes(v.search.title.toLowerCase())
-                })
-
-          return courses.slice(0, v.split)
-
+          if(this.search.campus == '' || this.search.campus == 'All') {
+            return this.courses.slice(0, this.split)
+          } else {
+            return this.courses
+            .filter((course) => course.campus === this.search.campus).slice(0, this.split)
+          }
       }
   }
 
