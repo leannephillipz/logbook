@@ -70,7 +70,8 @@ export default {
         search: {
           campus: 'All',
           title: ''
-        }
+        },
+        test: false
       }
   },
   computed: {
@@ -78,6 +79,25 @@ export default {
         // returns a new array not orriginal data
            // return this.courses.slice(0, this.split)
 
+          // const tester = function() {
+          //    if (this.courses.includes(this.search.title)) {
+          //      return true
+          //    } else {
+          //     return false
+          //  }
+          //  }
+
+
+           // if (this.courses.includes(this.search.title)){
+           //   return this.courses
+           //   .filter((course) => course.title === this.search.title).slice(0, this.split)
+           //   // return this.courses.slice(0, this.split)
+           // } else {
+           //   return this.courses.slice(0, this.split)
+           // }
+          //  else
+          //
+          //
           if(this.search.campus == '' || this.search.campus == 'All') {
             return this.courses.slice(0, this.split)
           } else {
