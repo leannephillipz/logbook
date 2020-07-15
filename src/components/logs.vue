@@ -8,7 +8,8 @@
                    <!--{{ log.datestamp | moment("DD / MM / YYYY")}} -->
                 <br> {{ log.course }} <br>Student: {{log.student.fname}} {{log.student.lname}}
               <br>With: {{log.author.fname}} {{log.author.lname}}</li>
-                <li>{{ log.content.substring(0,255)+"..." }}</li>
+                <!-- <li>{{ log.content.substring(0,255)+"..." }}</li> -->
+                  <li>{{ log.content | snippet }}</li>
                 </ul>
         </li>
       </ul>

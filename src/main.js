@@ -18,11 +18,16 @@ import Router from './router'
 
 // Use / Install packages
 // Vue.use(Resources)
-Vue.use(Router)
+Vue.use(Router);
 // Vue.use(Moment)
 // Vue.use(VueMoment)
 
-
+Vue.filter('capitalize', function (value) {
+  return value.toUpperCase()
+}) // | capitalize
+Vue.filter('snippet', function (value) {
+  return value.slice(0,100) + "...";
+}) // | capitalize
 
 
 // console.log(Vue.moment().locale()) //en
