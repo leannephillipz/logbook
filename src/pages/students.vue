@@ -55,7 +55,7 @@ export default {
         return {
           ehcp: false,
           discosure: false,
-          // searchtext: '',
+          searchtext: '',
           students: StudentStore.data.students,
           // allcourses: CourseStore.data.courses,
           // queryall: true,
@@ -99,7 +99,18 @@ export default {
       // },
 
       filteredStudents: function () {
-        if(this.ehcp && this.discosure) {
+
+        if(this.searchtext !== '') {
+          if(this.discosure) {
+            return this.students.filter((student) => student.fname.toLowerCase().match(this.searchtext.toLowerCase()) && student.documents.includes('Discosure'))
+          } else if(this.ehcp) {
+            return this.students.filter((student) => student.fname.toLowerCase().match(this.searchtext.toLowerCase()) && student.documents.includes('EHCP'))
+          } else {
+            return this.students.filter((student) => student.fname.toLowerCase().match(this.searchtext.toLowerCase()))
+          }
+
+          // return [];
+        } else if(this.ehcp && this.discosure) {
           return this.students.filter(student => student.documents.includes('EHCP') && student.documents.includes("Discosure"))
           // return this.students
           // return this.students.filter(val => val.length > 6)
