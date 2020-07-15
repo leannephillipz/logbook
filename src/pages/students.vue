@@ -3,15 +3,16 @@
   <h2 class="pagetitle">Students</h2>
 
 
-<!--  <div class="filters">
+ <div class="filters">
     <label>
   <input type="text" value="" placeholder="First name (e.g. John) or last name (e.g. Jones)" v-model="searchtext"/>
 </label>
-  <div class="opts">
-  <label><input type="checkbox" value="ehcp" v-model="ehcp">With EHCP</label>
-  <label><input type="checkbox" value="discosure" v-model="discosure">With student disclosure</label>
-  </div>
-</div>-->
+
+</div>
+<div class="opts">
+<label><input type="checkbox" value="ehcp" v-model="ehcp">With EHCP</label>
+<label><input type="checkbox" value="discosure" v-model="discosure">With student disclosure</label>
+</div>
 
   <!--  <li>
        <ul class="flex colhead">
@@ -23,7 +24,7 @@
       </ul>
     </li>-->
         <ul class="flex data">
-          <li v-for="student in orderedStudents" :key="student.index">
+          <li v-for="student in filteredStudents" :key="student.index">
             <router-link :to="{ name: 'student', params: { uid: student.uid  }}">
 
           <img  v-if="student.img" :src="require('@/data/'+student.img.url)" :alt="student.img.alt" class="img"/>
@@ -52,13 +53,13 @@ export default {
   name: 'students',
     data () {
         return {
-          // ehcp: false,
-          // discosure: false,
+          ehcp: false,
+          discosure: false,
           // searchtext: '',
           students: StudentStore.data.students,
           // allcourses: CourseStore.data.courses,
           // queryall: true,
-          // test: false
+           // test: false
         }
     },
 
@@ -93,9 +94,27 @@ export default {
 
 
 
-      orderedStudents: function () {
-         return this.students
-  }
+      // orderedStudents: function () {
+      //    return this.students
+      // },
+
+      filteredStudents: function () {
+        if(this.ehcp && this.discosure) {
+          return this.students.filter(student => student.documents.includes('EHCP') && student.documents.includes("Discosure"))
+          // return this.students
+          // return this.students.filter(val => val.length > 6)
+        } else if(this.ehcp) {
+          return this.students.filter(student => student.documents.includes('EHCP'))
+          // return this.students
+          // return this.students.filter(val => val.length > 6)
+        } if (this.discosure) {
+          return this.students.filter(student => student.documents.includes('Discosure'))
+          // return this.students
+          // return this.students.filter(val => val.length > 6)
+        } else {
+          return this.students
+        }
+      }
 
         /*filteredStudents() {
          //return this.students

@@ -17,7 +17,7 @@
 		},
 		"flags": ["Dyslexia"],
 		"examsupport": ["Reader", "Scriber"],
-		"documents": ["EHCP", "Discosure"],
+		"documents": ["EHCP"],
 		"status": "active",
 		"notes": {
 			"0": {
@@ -76,7 +76,7 @@
 			 "alt": "Mickymouse"
 		 },
 			"flags": ["Dyslexia"],
-		"documents": ["EHCP"],
+		"documents": ["Discosure", "EHCP"],
 			"notes": {
 				"0": {
 					"date": "20/12/1979",
@@ -102,7 +102,7 @@
 				"alt": "FredFlintstone"
 			},
 			"flags": ["Dyslexia"],
-		"documents": ["Discosure"],
+		"documents": [],
 			"notes": {
 				"0": {
 					"date": "20/12/1979",
@@ -128,7 +128,7 @@
 				"alt": "Bear"
 			},
 			"flags": ["Dyslexia"],
-		"documents": ["Discosure"],
+		"documents": [],
 			"notes": {
 				"0": {
 					"date": "20/12/1979",
@@ -154,7 +154,7 @@
 				"alt": "Jetson"
 			},
 			"flags": ["Dyslexia"],
-		"documents": ["EHCP"],
+		"documents": [],
 			"notes": {
 				"0": {
 					"date": "20/12/1979",
@@ -206,7 +206,7 @@
 				"alt": "Wile E Coyote"
 			},
 			"flags": ["Dyslexia"],
-		"documents": ["Discosure"],
+		"documents": [""],
 			"notes": {
 				"0": {
 					"date": "20/12/1979",
@@ -232,7 +232,7 @@
 				"alt": "Foghorn Leghorn"
 			},
 			"flags": ["Writing"],
-		"documents": ["Discosure"],
+		"documents": [],
 			"notes": {
 				"0": {
 					"date": "20/12/1979",
@@ -284,7 +284,7 @@
 			 "alt": "tinkerbell"
 		 },
 			"flags": ["Dyslexia"],
-		"documents": ["EHCP", "Discosure"],
+		"documents": [],
 			"notes": {
 				"0": {
 					"date": "20/12/1979",
