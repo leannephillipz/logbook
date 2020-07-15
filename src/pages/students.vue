@@ -102,11 +102,11 @@ export default {
 
         if(this.searchtext !== '') {
           if(this.discosure) {
-            return this.students.filter((student) => student.fname.toLowerCase().match(this.searchtext.toLowerCase()) && student.documents.includes('Discosure'))
+            return this.students.filter((student) => student.fname.toLowerCase().match(this.searchtext.toLowerCase()) || student.lname.toLowerCase().match(this.searchtext.toLowerCase()) && student.documents.includes('Discosure'))
           } else if(this.ehcp) {
-            return this.students.filter((student) => student.fname.toLowerCase().match(this.searchtext.toLowerCase()) && student.documents.includes('EHCP'))
+            return this.students.filter((student) => student.fname.toLowerCase().match(this.searchtext.toLowerCase()) || student.lname.toLowerCase().match(this.searchtext.toLowerCase()) && student.documents.includes('EHCP'))
           } else {
-            return this.students.filter((student) => student.fname.toLowerCase().match(this.searchtext.toLowerCase()))
+            return this.students.filter((student) => student.fname.toLowerCase().match(this.searchtext.toLowerCase()) || student.lname.toLowerCase().match(this.searchtext.toLowerCase()))
           }
 
           // return [];
