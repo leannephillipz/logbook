@@ -3,6 +3,8 @@
 
 A prototype student logbook for learning support in schools and colleges using vue.js
 
+https://logbook.onrender.com/
+
 
 Todo: look up https://webpack.js.org/guides/code-splitting/
 
