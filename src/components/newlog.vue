@@ -22,13 +22,13 @@
       </label>
 
     <p v-if="newlog.title > 2" >Are you looking for...</p>
-    <ul v-for="course in filtercourses()" v-bind:key="index">
+    <ul v-for="course in filtercourses()">
     <li v-on:click="getdata(course.title, course.code, course.students)">{{ course.index }} {{ course.title }}</li>
     </ul>
 
     <div v-if="isselected">
     <p>Select student(s):</p>
-    <ul v-for="p in findcoursestudents()" v-bind:key="index">
+    <ul v-for="p in findcoursestudents()">
       <li>
         <input type="checkbox" :value="p.uid" v-model="newlog.students" >
         <label>{{ p.fname }} {{ p.lname }}</label>

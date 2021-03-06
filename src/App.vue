@@ -1,50 +1,34 @@
 <template>
-  <div id="app" :class="theme">
-
-    <topbar v-if="$root.authlogin"/>
-    <div class='requireauth' v-if="$root.authlogin"><navigation v-if="$root.authlogin"/></div>
-
-    <div class='container'>
-      <transition name="fade" mode="out-in">
-      <router-view/>
-      </transition>
-  </div>
-
-
+  <div class="theme dark">
+    <topbar/>
+    <navbar/>
+    <main>
+    <router-view/>
+  </main>
 
   </div>
 </template>
 
 
 <script>
-import navigation from '@/components/navigation.vue';
-import topbar from '@/components/topbar.vue';
+import topbar from '@/components/topbar.vue'
+import navbar from '@/components/navbar.vue'
 
 export default {
-  name: 'app',
-  data() {
-      return {
-        theme: "dark"
+    components:{ navbar, topbar },
+    setup (){
 
-  }},
-  components: {
-    navigation,
-    topbar
-  },
-  methods: {
-
-  }
-
+    }
 }
-
 </script>
 
 <style>
-@import './style/normalise.css';
-@import './style/flex.css';
-@import './style/base.css';
-@import './style/theme.css';
-@import './style/modal.css';
-
-
+.theme {min-height:100vh;}
+.theme.dark {
+  background-image: url(~@/assets/noise.png), url(~@/assets/bg.png);
+  background-size: auto, 100% 100%;
+  background-repeat: repeat, no-repeat;
+  background-attachment: fixed;
+  color:#fff;
+}
 </style>

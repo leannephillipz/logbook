@@ -1,53 +1,48 @@
 <template>
-<section>
-     <h3>Recent Logs</h3>
-      <ul>
-          <li v-for="log in getlogs" v-bind:key="log.index">
-            <ul class="item">
-                 <li>
-                   <!--{{ log.datestamp | moment("DD / MM / YYYY")}} -->
-                <br> {{ log.course }} <br>Student: {{log.student.fname}} {{log.student.lname}}
-              <br>With: {{log.author.fname}} {{log.author.lname}}</li>
-                <!-- <li>{{ log.content.substring(0,255)+"..." }}</li> -->
-                  <li>{{ log.content | snippet }}</li>
-                </ul>
-        </li>
-      </ul>
-      <!-- <button class="btn" v-on:click="$router.push({ name: 'logbook'})">Logbook</button></form> -->
-    </section>
+  <section class="logs">
+    <hr class="spacer">
+      <h5>Logs:</h5>
+
+          <div class="log" v-for="log in logs">
+            <p>{{ log.datestamp }}</p>
+            <p>{{ log.course  }}</p>
+            <p>By: {{ log.author.fname }} {{ log.author.lname }}</p>
+            <p>{{ log.content }}</p>
+          </div>
+
+      </section>
 </template>
 
 <script>
-import LogStore from '@/data/logstore.js'
+import logs from '@/data/logs.json';
+// import LogStore from '@/data/logstore.js'
 
 export default {
   name: 'logs',
   data() {
         return {
-            logs: LogStore.data.logs,
+            logs,
             split: '3',
             sortby: 'Kenobi',
             sorttype: 'lname'
         }
   },
   computed: {
-      getlogs: function(){
-        const v = this
-        const sortlogs = v.logs
+      logbook: function(){
         //
         // return this.logs.slice(0, v.split).sort((a, b) => x.datestamp - y.datestamp);
         //
-           if (v.sorttype == 'lname') {
-             return sortlogs.filter(log => {
-               return log.author.lname.toLowerCase().includes(v.sortby.toLowerCase())
-             })
-          } else if (v.sorttype == 'fname') {
-             return sortlogs.filter(log => {
-               return log.author.fname.toLowerCase().includes(v.sortby.toLowerCase())
-             })
-          }
+          //  if (v.sorttype == 'lname') {
+          //    return sortlogs.filter(log => {
+          //      return log.author.lname.toLowerCase().includes(v.sortby.toLowerCase())
+          //    })
+          // } else if (v.sorttype == 'fname') {
+          //    return sortlogs.filter(log => {
+          //      return log.author.fname.toLowerCase().includes(v.sortby.toLowerCase())
+          //    })
+          // }
 
-          return sortlogs.slice(0, v.split);
+          // return sortlogs.slice(0, this.split);
           }
   }
 }
@@ -56,13 +51,15 @@ export default {
 
 
 <style scoped>
-.list li {
-padding:0;
+
+.logs > div:first-of-type{
+	border-top: 1px solid #666;
 }
 
-.list > li {
-padding:1em 0; border-bottom: 1px solid #666;
+.logs > div {
+	padding:1em 0; border-bottom: 1px solid #666;
 }
+
 
 
 </style>

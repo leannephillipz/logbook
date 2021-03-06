@@ -1,8 +1,7 @@
 <template >
 <section class="topbar">
 <ul>
-<li>Total notifications: {{notify.length}}</li>
-<!-- <li >|  <a v-on:click="toggellogin">{{ thislogintxt }}</a></li> -->
+<li @click="togglelogin()" >{{ logintxt }}</li>
 <!-- <li>
   <div class="profile">
   </div></li> -->
@@ -13,47 +12,27 @@
 
 <script>
 
-import NotifyStore from '@/stores/NotifyStore.js';
+import { ref } from 'vue'
 
 export default {
     name: 'topbar',
-    props: {
-      visible: {
-        type: Boolean,
-        default: true
-      }
-    },
-      data: function() {
-        return {
-          hidden: !this.visible,
-          notify: NotifyStore.data.notes,
-          // logintxt: "hello"
+
+      setup(){
+        const logintxt = ref("Logout")
+
+        const togglelogin = () => {
+          if (logintxt.value == "Logout") {
+                logintxt.value = "Login"
+                // console.log(logintxt.value)
+             }
+            else if (logintxt.value == "Login") {
+                   logintxt.value = "Logout"
+                   // console.log(logintxt.value)
+                }
         }
-      },
-      methods: {
-        // toggellogin: function () {
-        //   //this.$root.authlogin = true
-        //   if (this.$root.authlogin) {
-        //      return this.$root.authlogin = false
-        //      router.push({ path: 'login' })
-        //    } else {
-        //      return this.$root.authlogin = true
-        //    }
-        //
-        // }
-      },
-      computed: {
-        // thislogintxt: function () {
-        //    if (this.$root.authlogin) {
-        //       return this.logintxt = "Logout"
-        //     } else {
-        //       return this.logintxt = "Login"
-        //     }
-        //     }
+        return {logintxt, togglelogin}
       }
+
   }
 
 </script>
-<style scoped>
-
-</style>

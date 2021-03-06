@@ -29,24 +29,7 @@ body {
 
 
 
-main {
-	margin-left:240px;
-  box-sizing: border-box;
-	padding:var(--padding);
-  padding-top: 100px;
-}
 
-@media (max-width: 1000px) {
-  main {
-  	margin-left:0;
-  }
-}
-
-@media screen and (min-width: 1470px){
-main {
-  max-width:70%;
-}
-}
 
 
 /* fix jump problem */
@@ -516,11 +499,7 @@ nav {z-index:2;}
 
 
 
-.notify {
-  background: rgba(0,0,0,.1);
-  padding: 1rem;
-  overflow:auto;
-}
+
 
 
 

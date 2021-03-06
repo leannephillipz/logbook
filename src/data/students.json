@@ -1,28 +1,24 @@
-[
-	{
+[{
 		"id": "0",
-		"uid": "089573",
-		"name": {
-			"first": "Bugs",
-			"last": "Bunny"
-		},
+		"sid": "089573",
 		"fname": "Bugs",
     "lname": "Bunny",
+		"aka": "Bugs",
 		"dob": "1979-08-08",
 		"gender": "male",
 		"email": "BugsBunny@college.ac.uk",
 		"img": {
 			"url": "students/bugs.jpg",
-			"alt": "BugsBunny"
+			"alt": "bugs"
 		},
 		"flags": ["Dyslexia"],
 		"examsupport": ["Reader", "Scriber"],
-		"documents": ["EHCP"],
+		"documents": ["EHCP", "Discosure"],
 		"status": "active",
 		"notes": {
 			"0": {
 				"date": "20/12/1979",
-				"note": "What's up doc?"
+				"note": "Governor Tarkin, I should have expected to find you holding Vader's leash. I recognized your foul stench when I was brought on board. "
 			},
 			"1": {
 				"date": "20/12/1979",
@@ -36,9 +32,9 @@
 		},
 		"course": "Art & Design",
 		"coursecode": "EM0090"
-	}, {
+}, {
 			"id": "1",
-			"uid": "395791",
+			"sid": "395791",
 			"fname": "Daffy",
 	    "lname": "Duck",
 			"dob": "12/12/2001",
@@ -46,7 +42,7 @@
 			"email": "daffyduck@college.ac.uk",
 			"img": {
 			 "url": "students/daffy.jpg",
-			 "alt": "daffyduck"
+			 "alt": "Daffy"
 		 },
 			"flags": ["Dyslexia"],
 			"examsupport": ["Reader", "Scriber"],
@@ -63,20 +59,20 @@
 			},
 			"course": "Music and Media",
 			"coursecode": "ZP9439"
-	}, {
+}, {
 			"id": "2",
-			"uid": "28943",
+			"sid": "28943",
 			"fname": "Micky",
 	    "lname": "Mouse",
 			"dob": "12/12/2001",
 			"gender": "male",
-			"email": "Mickymouse@college.ac.uk",
+			"email": "MarilynMonroe@college.ac.uk",
 			"img": {
 			 "url": "students/micky.jpg",
-			 "alt": "Mickymouse"
+			 "alt": "micky"
 		 },
 			"flags": ["Dyslexia"],
-		"documents": ["Discosure", "EHCP"],
+		"documents": ["EHCP"],
 			"notes": {
 				"0": {
 					"date": "20/12/1979",
@@ -89,9 +85,9 @@
 			},
 			"course": "Performance Arts",
 			"coursecode": "YE8490"
-	}, {
+}, {
 			"id": "3",
-			"uid": "348928",
+			"sid": "348928",
 			"fname": "Fred",
 	    "lname": "Flintstone",
 			"dob": "12/12/2001",
@@ -99,10 +95,10 @@
 			"email": "LukeSkywalker@college.ac.uk",
 	    "img": {
 				"url": "students/flintstone.jpg",
-				"alt": "FredFlintstone"
+				"alt": "Flintstone"
 			},
 			"flags": ["Dyslexia"],
-		"documents": [],
+		"documents": ["Discosure"],
 			"notes": {
 				"0": {
 					"date": "20/12/1979",
@@ -115,9 +111,9 @@
 			},
 			"course": "BrickLaying",
 			"coursecode": "BL0904"
-	}, {
+}, {
 			"id": "4",
-			"uid": "567255",
+			"sid": "567255",
 			"fname": "Yogi",
 	    "lname": "Bear",
 			"dob": "12/12/2001",
@@ -125,10 +121,10 @@
 			"email": "YogiBear@college.ac.uk",
 	    "img": {
 				"url": "students/yogi.jpg",
-				"alt": "Bear"
+				"alt": "Yogi"
 			},
 			"flags": ["Dyslexia"],
-		"documents": [],
+		"documents": ["Discosure"],
 			"notes": {
 				"0": {
 					"date": "20/12/1979",
@@ -141,9 +137,9 @@
 			},
 			"course": "Catering",
 			"coursecode": "EM0090"
-	}, {
+}, {
 			"id": "5",
-			"uid": "684564",
+			"sid": "684564",
 			"fname": "George",
 	    "lname": "Jetson",
 			"dob": "12/12/2001",
@@ -151,6 +147,32 @@
 			"email": "GeorgeJetson@college.ac.uk",
 	    "img": {
 				"url": "students/jetson.jpg",
+				"alt": "Jetson"
+			},
+			"flags": ["Dyslexia"],
+		"documents": ["EHCP"],
+			"notes": {
+				"0": {
+					"date": "20/12/1979",
+					"note": "woohoo"
+				},
+				"1": {
+					"date": "20/12/1979",
+					"note": "ywp"
+				}
+			},
+			"course": "IT",
+			"coursecode": "CY3404"
+}, {
+			"id": "6",
+			"sid": "67465",
+			"fname": "Homer",
+	    "lname": "Simpson",
+			"dob": "12/12/2001",
+			"gender": "male",
+			"email": "HomerSimpson@college.ac.uk",
+	    "img": {
+				"url": "students/homer.jpg",
 				"alt": "Jetson"
 			},
 			"flags": ["Dyslexia"],
@@ -165,37 +187,11 @@
 					"note": "ywp"
 				}
 			},
-			"course": "IT",
-			"coursecode": "CY3404"
-	}, {
-			"id": "6",
-			"uid": "67465",
-			"fname": "Homer",
-	    "lname": "Simpson",
-			"dob": "12/12/2001",
-			"gender": "male",
-			"email": "HomerSimpson@college.ac.uk",
-	    "img": {
-				"url": "students/homer.jpg",
-				"alt": "HomerSimpson"
-			},
-			"flags": ["Dyslexia"],
-		"documents": [],
-			"notes": {
-				"0": {
-					"date": "20/12/1979",
-					"note": "woohoo"
-				},
-				"1": {
-					"date": "20/12/1979",
-					"note": "ywp"
-				}
-			},
 			"course": "Catering",
 			"coursecode": "EM0090"
-	}, {
+}, {
 			"id": "7",
-			"uid": "8673546",
+			"sid": "8673546",
 			"fname": "Wile E",
 	    "lname": "Coyote",
 			"dob": "12/12/2001",
@@ -203,10 +199,10 @@
 			"email": "WileECoyote@college.ac.uk",
 	    "img": {
 				"url": "students/coyote.jpg",
-				"alt": "Wile E Coyote"
+				"alt": "Coyote"
 			},
 			"flags": ["Dyslexia"],
-		"documents": [""],
+		"documents": ["Discosure"],
 			"notes": {
 				"0": {
 					"date": "20/12/1979",
@@ -219,9 +215,9 @@
 			},
 			"course": "Explosives",
 			"coursecode": "349904"
-	}, {
+}, {
 			"id": "7",
-			"uid": "5757743",
+			"sid": "5757743",
 			"fname": "Foghorn",
 	    "lname": "Leghorn",
 			"dob": "12/12/2001",
@@ -232,7 +228,7 @@
 				"alt": "Foghorn Leghorn"
 			},
 			"flags": ["Writing"],
-		"documents": [],
+		"documents": ["Discosure"],
 			"notes": {
 				"0": {
 					"date": "20/12/1979",
@@ -245,9 +241,9 @@
 			},
 			"course": "Uniformed Services",
 			"coursecode": "530q32"
-	}, {
+}, {
 			"id": "8",
-			"uid": "446562",
+			"sid": "446562",
 			"fname": "Peter",
 	    "lname": "Pan",
 			"dob": "12/12/2001",
@@ -271,20 +267,20 @@
 			},
 			"course": "Magic",
 			"coursecode": "358353"
-	}, {
-			"id": "9",
-			"uid": "28943",
-			"fname": "tinker",
-	    "lname": "bell",
+}, {
+			"id": "2",
+			"sid": "28943",
+			"fname": "leanne",
+	    "lname": "phillips",
 			"dob": "12/12/2001",
 			"gender": "female",
-			"email": "tinkerbell@college.ac.uk",
+			"email": "MarilynMonroe@college.ac.uk",
 			"img": {
-			 "url": "students/tinkerbell.jpg",
-			 "alt": "tinkerbell"
+			 "url": "students/flintstone.jpg",
+			 "alt": "Flintstone"
 		 },
 			"flags": ["Dyslexia"],
-		"documents": [],
+		"documents": ["EHCP", "Discosure"],
 			"notes": {
 				"0": {
 					"date": "20/12/1979",
@@ -297,5 +293,4 @@
 			},
 			"course": "Performance Arts",
 			"coursecode": "YE8490"
-		}
-]
+}]

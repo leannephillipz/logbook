@@ -1,0 +1,206 @@
+main {
+	margin-left:180px;
+  box-sizing: border-box;
+	padding:var(--padding);
+  padding-top: 80px;
+}
+
+/* @media (max-width: 1000px) {
+  main {
+  	margin-left:0;
+  }
+}
+
+@media screen and (min-width: 1470px){
+main {
+  max-width:70%;
+}
+} */
+
+
+
+h2 {
+	margin-top:0;
+}
+
+
+.topbar {
+	position:absolute;
+	top:0px;
+	width:100%;
+	background-color: rgba(50,50,50,0.9);
+	-webkit-transition: 0.5s;
+    -o-transition: 0.5s;
+    transition: 0.5s;
+  color:#fff;}
+
+    .topbar ul{
+      float:right;
+      padding: 0.5rem 3rem;
+
+    }
+
+    .topbar ul li {
+          display: inline-block;
+          padding-left:30px;
+    }
+.dark .topbar {
+		      background: rgba(241, 240, 229, 0.05);
+		}
+
+
+
+.list ul li:last-child{
+  padding:0;
+  text-align: right;
+}
+@media screen and (min-width: 1000px){
+
+.list ul li{
+  padding-right:0.5rem;
+  flex: 1 1 0;
+}
+.list ul li:first-of-type{
+  padding-right:0.5rem;
+  flex: 0.3 1 0;
+}
+}
+
+
+nav {
+    position:fixed;
+    width: 180px;
+    min-width: 180px;
+    background:#F7F9FA;
+    background: rgba(50,50,50,0.15);
+    height: 100%;
+    padding: 4em 0 2em 2em;
+}
+
+  nav ul {
+    margin-top: 3rem;
+    text-align: right;
+  }
+
+  nav a {color:rgba(255,255,255,0.8);}
+/*
+  @media (max-width: 1000px) {
+
+    nav {
+        position:fixed;
+        width: auto;
+        min-width: auto;
+        background:rgba(50,50,50,1);
+    }
+
+    nav ul {
+      margin-top: 0;
+      text-align: left;
+    }
+  } */
+nav a, menu a {display:block; margin: 1rem 0; padding-right: 11px;}
+  .router-link-active {border-right: 1px solid white;
+      padding-right: 10px;}
+
+
+
+
+
+
+
+.studentcards {
+	display: flex;
+  flex-flow: row wrap;
+  justify-content: flex-start;
+}
+
+.studentcards img {
+	width: 100%;
+	height:auto;
+}
+.studentcards > div {
+	margin-right: 1rem;
+	margin-bottom: 1rem;
+	background-color: hsla(0,0%,100%,.1);
+	flex: 1 1 auto;
+	max-width: 150px;
+}
+.studentcards > div p{
+padding: 1rem;
+}
+
+.studentcards .tag {
+	position: absolute;
+	padding: 0;
+	background: #ffb24e;
+	height: 1em;
+	width: 1em;
+	transform: translate(.5em, -0.3em);
+	display: block;
+}
+
+
+
+
+
+.filters {
+
+	margin-bottom:1em;
+	overflow:auto;
+}
+
+
+.filters > * {
+	display: inline-block;
+}
+
+.filters > * {
+	margin-right: 1rem;
+}
+
+.switchview {
+
+}
+
+
+
+
+
+
+
+
+.content h5 {
+  padding: 1em 0 .3em;
+}
+
+
+
+
+
+
+
+
+
+
+
+.list a, .list li, .list p {padding:0; margin:0;}
+
+.list > li {
+padding: .5em 0;
+border-bottom: 1px solid #666;
+}
+
+
+.list ul li:nth-child(3){
+  flex: 1 0 100px;
+}
+.list ul li:last-child{
+  flex: 0 1 30px;
+}
+
+ .list ul li.sm{
+   flex: 0 1 100px;
+}
+.list ul li.big{
+  flex: 1 0 200px;
+}
